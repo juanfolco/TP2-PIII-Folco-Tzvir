@@ -4,17 +4,20 @@
 #include <fstream>
 #include <string.h>
 #include <sstream>
+#include "Paciente.h"
+#include "../Data_sortings/BinaryTreeStad.h"
 using namespace std;
 int stad(){
     ifstream input;
-    input.open("..\\Covid19Casos-1000.csv");
+    input.open("..\\Test_files\\Covid19Casos-10.csv");
     if(input.fail()){
         cout << "Error: no se puede abrir el archivo o no existe." << endl;
         return 1;
     }
-    cout << "Por ahora... bien?" << endl;
+    cout << "Leyendo archivo..." << endl;
     string placeholder;
-    int total=-1,edad=0,infectados=0,fallecidos=0;
+    int total=0,edad=0,infectados=0,fallecidos=0;
+    BinaryTree<unsigned int> rango;
    // Cantidad de infectados por rango etario (rango de 10 años)
    // Cantidad de muertes por rango etario (rango de 10 años)
     while(getline(input, placeholder, ',')){
@@ -27,7 +30,12 @@ int stad(){
         cout << "Edad: " << placeholder << " " <<endl ;
         stringstream temp(placeholder);
         temp >> edad;
-        getline(input, placeholder, ',') ; //si la edad son años o meses, ignorar
+        getline(input, placeholder, ',') ; //si la edad son años o meses
+        if(placeholder == "\"Meses\""){
+            edad=0;
+        }
+        int mrango=edad%10;
+        //Acá debe ir un árbol binario de rangos pero todavía queda pendiente la implementación apropiada
 
         getline(input, placeholder, ',') ; //pais donde vive
 

@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
             } catch (...) {
                 std::cout << " (sin cantidad)" << std::endl;
             }
-            p_casos();
+           p_casos();
         }
 
         if (std::string(argv[1]) == "-casos_cui") {
@@ -32,6 +32,8 @@ int main(int argc, char *argv[]) {
             } catch (...) {
                 std::cout << " (sin fecha ingresada)" << std::endl;
             }
+            int cant = std::stoi(argv[2]); //cambiar por fecha
+            casos_cui();
         }
 
         if (std::string(argv[1]) == "-p_muertes") {
@@ -42,16 +44,19 @@ int main(int argc, char *argv[]) {
             } catch (...) {
                 std::cout << " (sin cantidad)" << std::endl;
             }
+            p_muertes();
         }
 
         if (std::string(argv[1]) == "-casos_edad") {
             std::cout << "Realizando analisis por edad...";
             try {
-                int cant = std::stoi(argv[2]);
+                unsigned int cant = std::stoi(argv[2]);
                 std::cout << " (con edad de " << cant << " anios)" << std::endl;
             } catch (...) {
                 std::cout << "Error: no se ha ingresado la edad requerida." << std::endl;
             }
+            unsigned int cant = std::stoi(argv[2]);
+            casos_edad(cant);
         }
 
         if (std::string(argv[1]) == "-stad") {
