@@ -15,7 +15,7 @@ using namespace std;
 
 int p_casos() {
     ifstream input;
-    input.open("..\\Test_files\\Covid19Casos-10.csv");
+    input.open("..\\Test_files\\Covid19Casos-1000.csv");
     if (input.fail()) {
         cout << "Error: no se puede abrir el archivo o no existe." << endl;
         return 1;
@@ -50,9 +50,19 @@ int p_casos() {
         getline(input, placeholder, ','); //resumen del estado
         if (placeholder == "\"Confirmado\"") {
             estado temp(nomprov, 1);
-           // provincias.find(temp.getNombre());
-            provincias.push_front(temp);
-            //la lista se arma pero hay que ver la manera de que no se duplique
+            provincias.start();
+            while (!provincias.isEnd()) {
+                if (provincias.getActual()->getData().getNombre() == nomprov) {
+                    provincias.getActual()->getData().addCant();
+                    provincias.end();
+                } else {
+                    provincias.next();
+                    if(provincias.isEnd())
+                        provincias.push_front(temp);
+                }
+            }if (provincias.isEmpty())
+                provincias.push_front(temp);
+            //falta ordenamiento y poner esto en una función aparte
         }
         cout << "Estado: " << placeholder << " " << endl;
         getline(input, placeholder, ','); //id de provincia donde vive

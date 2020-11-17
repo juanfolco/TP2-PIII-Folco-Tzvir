@@ -32,7 +32,6 @@ int main(int argc, char *argv[]) {
             } catch (...) {
                 std::cout << " (sin fecha ingresada)" << std::endl;
             }
-            int cant = std::stoi(argv[2]); //cambiar por fecha
             casos_cui();
         }
 

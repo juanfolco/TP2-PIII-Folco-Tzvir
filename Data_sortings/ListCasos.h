@@ -1,6 +1,6 @@
 #ifndef U02_LISTAS_LISTA_LISTA_H_
 #define U02_LISTAS_LISTA_LISTA_H_
-#include "Node.h"
+#include "NodeCasos.h"
 
 /**
  * Clase que implementa una List Enlasada generica, ya que puede
@@ -13,6 +13,8 @@ private:
   Node<T> *begin;
   Node<T> *getNode(unsigned int pos);
   Node<T> *actual;
+public:
+    Node<T> *getActual() const;
 
 public:
   List();
@@ -48,6 +50,7 @@ public:
   void start() { actual = begin; }
   bool isEnd() { return actual == nullptr; }
   void next() { actual = actual->getNext(); }
+  void end() { actual = nullptr; }
 
   T get() {
     if (actual == nullptr)
@@ -276,6 +279,11 @@ template <class T> void List<T>::print() {
     aux = aux->getNext();
   }
   std::cout << " " << std::endl;
+}
+
+template<class T>
+Node<T> *List<T>::getActual() const {
+    return actual;
 }
 
 #endif // U02_LISTAS_LISTA_LISTA_H_

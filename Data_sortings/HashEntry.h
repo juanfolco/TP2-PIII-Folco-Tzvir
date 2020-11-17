@@ -5,7 +5,7 @@ private:
   K key;
   T dato;
 public:
-  HasEntry (K key, T dato) :key(key), dato(dato) {}
+  HashEntry (K key, T dato) :key(key), dato(dato) {}
 
 };
 

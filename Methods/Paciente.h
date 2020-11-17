@@ -1,42 +1,67 @@
 #ifndef TP2_PIII_FOLCO_TZVIR_PACIENTE_H
 #define TP2_PIII_FOLCO_TZVIR_PACIENTE_H
+
 #include <iostream>
 #include <fstream>
 #include <string.h>
 #include <sstream>
 #include <string>
 #include "fecha.cpp"
+
 class Paciente {
 private:
     int id;
-    char genero;
+    std::string genero;
     int edad; //en meses
     std::string pais;
     std::string provincia;
     std::string departamento;
     std::string provinciaC;
-    Fecha sintomas;
-    Fecha inicio_caso;
+    std::string sintomas;
+    std::string inicio_caso;
     int semana_inicio;
-    Fecha internacion;
-    bool CUI;
-    Fecha CUIF;
-    bool fallecido;
-    Fecha fallecimiento;
-    bool asistenciaresp;
+    std::string internacion;
+    std::string CUI;
+    std::string CUIF;
+    std::string fallecido;
+    std::string fallecimiento;
+    std::string asistenciaresp;
     int idprovinciacarga;
     std::string financiamiento;
     std::string clasificacion;
     std::string resumen;
     int idprovinciares;
-    Fecha diagnostico;
+    std::string diagnostico;
     int iddepartamentores;
-    Fecha actualizacion;
+    std::string actualizacion;
 public:
     Paciente() {}
 
-    Paciente(int id, int edad, bool fallecido, const std::string &resumen) : id(id), edad(edad), fallecido(fallecido),
-                                                                             resumen(resumen) {} //para stad
+    Paciente(int id, const std::string &genero, int edad, const std::string &pais, const std::string &provincia,
+             const std::string &departamento, const std::string &provinciaC, const std::string &sintomas,
+             const std::string &inicioCaso, int semanaInicio, const std::string &internacion, const std::string &cui,
+             const std::string &cuif, const std::string &fallecido, const std::string &fallecimiento,
+             const std::string &asistenciaresp, int idprovinciacarga, const std::string &financiamiento,
+             const std::string &clasificacion, const std::string &resumen, int idprovinciares,
+             const std::string &diagnostico, int iddepartamentores, const std::string &actualizacion) : id(id),
+             genero(genero), edad(edad), pais(pais), provincia(provincia), departamento(departamento),
+             provinciaC(provinciaC),
+             sintomas(sintomas),
+             inicio_caso(inicioCaso), semana_inicio(semanaInicio),
+             internacion(internacion),
+             CUI(cui),
+             CUIF(cuif),
+             fallecido(fallecido),
+             fallecimiento(fallecimiento),
+             asistenciaresp(asistenciaresp),
+             idprovinciacarga(idprovinciacarga),
+             financiamiento(financiamiento),
+             clasificacion(clasificacion),
+             resumen(resumen),
+             idprovinciares(idprovinciares),
+             diagnostico(diagnostico),
+             iddepartamentores(iddepartamentores),
+             actualizacion(actualizacion) {}
 
     int getId() const {
         return id;
@@ -46,11 +71,11 @@ public:
         Paciente::id = id;
     }
 
-    char getGenero() const {
+    const std::string &getGenero() const {
         return genero;
     }
 
-    void setGenero(char genero) {
+    void setGenero(const std::string &genero) {
         Paciente::genero = genero;
     }
 
@@ -94,19 +119,19 @@ public:
         Paciente::provinciaC = provinciaC;
     }
 
-    const Fecha &getSintomas() const {
+    const std::string &getSintomas() const {
         return sintomas;
     }
 
-    void setSintomas(const Fecha &sintomas) {
+    void setSintomas(const std::string &sintomas) {
         Paciente::sintomas = sintomas;
     }
 
-    const Fecha &getInicioCaso() const {
+    const std::string &getInicioCaso() const {
         return inicio_caso;
     }
 
-    void setInicioCaso(const Fecha &inicioCaso) {
+    void setInicioCaso(const std::string &inicioCaso) {
         inicio_caso = inicioCaso;
     }
 
@@ -118,51 +143,51 @@ public:
         semana_inicio = semanaInicio;
     }
 
-    const Fecha &getInternacion() const {
+    const std::string &getInternacion() const {
         return internacion;
     }
 
-    void setInternacion(const Fecha &internacion) {
+    void setInternacion(const std::string &internacion) {
         Paciente::internacion = internacion;
     }
 
-    bool isCui() const {
+    const std::string &getCui() const {
         return CUI;
     }
 
-    void setCui(bool cui) {
+    void setCui(const std::string &cui) {
         CUI = cui;
     }
 
-    const Fecha &getCuif() const {
+    const std::string &getCuif() const {
         return CUIF;
     }
 
-    void setCuif(const Fecha &cuif) {
+    void setCuif(const std::string &cuif) {
         CUIF = cuif;
     }
 
-    bool isFallecido() const {
+    const std::string &getFallecido() const {
         return fallecido;
     }
 
-    void setFallecido(bool fallecido) {
+    void setFallecido(const std::string &fallecido) {
         Paciente::fallecido = fallecido;
     }
 
-    const Fecha &getFallecimiento() const {
+    const std::string &getFallecimiento() const {
         return fallecimiento;
     }
 
-    void setFallecimiento(const Fecha &fallecimiento) {
+    void setFallecimiento(const std::string &fallecimiento) {
         Paciente::fallecimiento = fallecimiento;
     }
 
-    bool isAsistenciaresp() const {
+    const std::string &getAsistenciaresp() const {
         return asistenciaresp;
     }
 
-    void setAsistenciaresp(bool asistenciaresp) {
+    void setAsistenciaresp(const std::string &asistenciaresp) {
         Paciente::asistenciaresp = asistenciaresp;
     }
 
@@ -206,11 +231,11 @@ public:
         Paciente::idprovinciares = idprovinciares;
     }
 
-    const Fecha &getDiagnostico() const {
+    const std::string &getDiagnostico() const {
         return diagnostico;
     }
 
-    void setDiagnostico(const Fecha &diagnostico) {
+    void setDiagnostico(const std::string &diagnostico) {
         Paciente::diagnostico = diagnostico;
     }
 
@@ -222,12 +247,27 @@ public:
         Paciente::iddepartamentores = iddepartamentores;
     }
 
-    const Fecha &getActualizacion() const {
+    const std::string &getActualizacion() const {
         return actualizacion;
     }
 
-    void setActualizacion(const Fecha &actualizacion) {
+    void setActualizacion(const std::string &actualizacion) {
         Paciente::actualizacion = actualizacion;
+    }
+
+    friend std::ostream &operator<<(std::ostream &os, const Paciente &paciente) {
+        os << "id: " << paciente.id << " genero: " << paciente.genero << " edad: " << paciente.edad << " pais: "
+           << paciente.pais << " provincia: " << paciente.provincia << " departamento: " << paciente.departamento
+           << " provinciaC: " << paciente.provinciaC << " sintomas: " << paciente.sintomas << " inicio_caso: "
+           << paciente.inicio_caso << " semana_inicio: " << paciente.semana_inicio << " internacion: "
+           << paciente.internacion << " CUI: " << paciente.CUI << " CUIF: " << paciente.CUIF << " fallecido: "
+           << paciente.fallecido << " fallecimiento: " << paciente.fallecimiento << " asistenciaresp: "
+           << paciente.asistenciaresp << " idprovinciacarga: " << paciente.idprovinciacarga << " financiamiento: "
+           << paciente.financiamiento << " clasificacion: " << paciente.clasificacion << " resumen: "
+           << paciente.resumen << " idprovinciares: " << paciente.idprovinciares << " diagnostico: "
+           << paciente.diagnostico << " iddepartamentores: " << paciente.iddepartamentores << " actualizacion: "
+           << paciente.actualizacion;
+        return os;
     }
 };
 

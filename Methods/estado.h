@@ -9,16 +9,16 @@
 #include <string.h>
 #include <string>
 #include <sstream>
+#include <utility>
 using namespace std;
 class estado {
 private:
 
     string nombre;
-    unsigned int cantidad = 0;
+    unsigned int cantidad;
 public:
-    estado(const string &nombre, unsigned int cantidad) : nombre(nombre), cantidad(cantidad) {}
+    estado(string nombre, unsigned int cantidad) : nombre(std::move(nombre)), cantidad(cantidad) {}
 
-public:
     friend ostream &operator<<(ostream &os, const estado &estado) {
         os << "nombre: " << estado.nombre << " cantidad: " << estado.cantidad;
         return os;
@@ -36,10 +36,15 @@ public:
         return cantidad;
     }
 
-    void setCantidad(unsigned int cantidad) {
-        estado::cantidad = cantidad;
+    void setCantidad(unsigned int cant) {
+        estado::cantidad = cant;
     }
 
+    void addCant() {
+        int a=estado::cantidad;
+        a++;
+        estado::cantidad = a;
+    }
     bool operator==(const estado &rhs) const { return nombre == rhs.nombre; }
 
     bool operator!=(const estado &rhs) const { return !(nombre == rhs.nombre); }

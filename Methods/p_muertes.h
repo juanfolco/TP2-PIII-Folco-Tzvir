@@ -16,7 +16,7 @@ using namespace std;
 
 int p_muertes() {
     ifstream input;
-    input.open("..\\Test_files\\Covid19Casos-10.csv");
+    input.open("..\\Test_files\\Covid19Casos-1000.csv");
     if (input.fail()) {
         cout << "Error: no se puede abrir el archivo o no existe." << endl;
         return 1;
@@ -45,9 +45,20 @@ int p_muertes() {
         getline(input, placeholder, ','); //murio?
         if (placeholder == "\"SI\"") {
             estado temp(nomprov, 1);
-           // provincias.find(temp.getNombre());
-            provincias.push_front(temp);
-            //la lista se arma pero hay que ver la manera de que no se duplique
+            provincias.start();
+            while (!provincias.isEnd()) {
+                if (provincias.getActual()->getData().getNombre() == nomprov) {
+                    provincias.getActual()->getData().addCant();
+                    provincias.end();
+                } else {
+                    provincias.next();
+                    if (provincias.isEnd())
+                        provincias.push_front(temp);
+                }
+            }
+            if (provincias.isEmpty())
+                provincias.push_front(temp);
+            //falta ordenamiento y poner esto en una función aparte
         }
         cout<< "Se murio? " << placeholder << endl;
         getline(input, placeholder, ','); //si murio, cuando?
