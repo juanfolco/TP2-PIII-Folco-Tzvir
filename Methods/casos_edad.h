@@ -12,6 +12,7 @@
 #include "Paciente.h"
 #include "../Data_sortings/HashMap.h"
 #include "../Data_sortings/ListCasos.h"
+#include "../Data_sortings/mergesort_edad.h"
 
 using namespace std;
 
@@ -26,22 +27,27 @@ int casos_edad(unsigned int x) {
     cout << "Leyendo archivo..." << endl;
     string placeholder,genero,nomprov,nompais,nomdep,nomprove,iniciosint,medicoc,fechaint,cui,fechacui;
     string muerte,fechamuerte,asistenciaresp,financiamiento,estadopac,resumenestado,fechadiag, actualizacion;
-    int total = 0, edad=0,id=0,semmedicoc=0,codigoproving=0,idprov=0,iddepart=0;
+    unsigned int total = 0, edad=0; string id;
+    string semmedicoc, codigoproving, idprov, iddepart;
     List<Paciente> delaedad;
-    while (getline(input, placeholder, ',')) {
+    while (getline(input, id, ',')) {
         total++;
-        stringstream temp(placeholder);
-        temp >> id;
-        cout << "Caso " << total << " " << placeholder << " " << endl; //ID
+        cout << "Caso " << total << " " << id << " " << endl; //ID
         getline(input, genero, ','); //Genero
-        getline(input, placeholder, ','); //edad
+
+        getline(input, placeholder, '"'); //Captar inicio de comillas
+        getline(input, placeholder, '"'); //edad
         cout << "Edad: " << placeholder << " " << endl;
-        stringstream temp2(placeholder);
-        //edad=std::stoi(placeholder);
-        temp2 >> edad;
+        try{
+            edad=std::stoi(placeholder); //¿Está la edad puesta?
+        }catch(...){
+            edad=0; //Si no tiene edad se deja vacío
+        }
+        getline(input, placeholder, ','); // Captar fin de comillas
+
         getline(input, placeholder, ','); //si la edad son años o meses
         if (placeholder == "\"Meses\"") {
-            // solucionar el stringstream que no toma bien
+            edad = 0;
         }
         getline(input, nompais, ','); //pais donde vive
         getline(input, nomprov, ','); //provincia donde vive
@@ -49,34 +55,28 @@ int casos_edad(unsigned int x) {
         getline(input, nomprove, ','); //provincia donde se examina
         getline(input, iniciosint, ','); //fecha de inicio de sintomas (en formato fecha)
         getline(input, medicoc, ','); //fecha donde se consulto con medico? (en formato fecha)
-        getline(input, placeholder, ','); //semana de consulta con doctor (en numero del 2020)
-        stringstream temp3(placeholder);
-        temp3 >> semmedicoc;
+        getline(input, semmedicoc, ','); //semana de consulta con doctor (en numero del 2020)
         getline(input, fechaint, ','); // fecha si es que se interno
         getline(input, cui, ','); //estuvo en cui?
         getline(input, fechacui, ','); //cuando estuvo en cui?
         getline(input, muerte, ','); //murio?
         getline(input, fechamuerte, ','); //si murio, cuando?
         getline(input, asistenciaresp, ','); //estuvo en asistencia respiratoria?
-        getline(input, placeholder, ','); //codigo de la provincia de ingreso
-        stringstream temp4(placeholder);
-        temp4 >> codigoproving;
+        getline(input, codigoproving, ','); //codigo de la provincia de ingreso
         getline(input, financiamiento, ','); //financiamiento publico o privado
         getline(input, estadopac, ','); //Estado del paciente
         getline(input, resumenestado, ','); //resumen del estado
-        getline(input, placeholder, ','); //id de provincia donde vive
-        stringstream temp5(placeholder);
-        temp5 >> idprov;
+
+        getline(input, idprov, ','); //id de provincia donde vive
         getline(input, fechadiag, ','); //fecha de diagnostico
-        getline(input, placeholder, ','); //id de departamento donde vive
-        stringstream temp6(placeholder);
-        temp6 >> iddepart;
+        getline(input, iddepart, ','); //id de departamento donde vive
         getline(input, actualizacion); //ultima actualizacion
         cout << endl;
         if(edad == x){
             Paciente temppac(id,genero,edad,nompais,nomprov,nomdep,nomprove,iniciosint,medicoc,semmedicoc,fechaint,cui,fechacui,muerte,fechamuerte,asistenciaresp,codigoproving,financiamiento,estadopac,resumenestado,idprov,fechadiag,iddepart,actualizacion);
             delaedad.push_front(temppac);
         }
+        //mergesort(delaedad);
     }delaedad.print();
    return 0;
 

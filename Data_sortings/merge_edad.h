@@ -1,15 +1,16 @@
-#ifndef TP2_PIII_FOLCO_TZVIR_MERGE_H
-#define TP2_PIII_FOLCO_TZVIR_MERGE_H
+#ifndef TP2_PIII_FOLCO_TZVIR_MERGE_EDAD_H
+#define TP2_PIII_FOLCO_TZVIR_MERGE_EDAD_H
 using namespace std;
 List<Paciente> merge(List<Paciente> a, List<Paciente> b){
     List<Paciente> result;
 string left; string right;
-while(!a.isEmpty() && !b.isEmpty()){
+while(!a.isEmpty() && !b.isEmpty()) {
     a.start();
-    left=a.getActual()->getData().getProvincia();
+    left = a.getActual()->getData().getProvincia();
     b.start();
-    right=b.getActual()->getData().getProvincia();
-
+    right = b.getActual()->getData().getProvincia();
+}
+/*
 if first(left) ≤ first(right) then
         append first(left) to result
 left := rest(left)
@@ -25,6 +26,6 @@ left := rest(left)
 while right is not empty do
 append first(right) to result
 right := rest(right)
-return result
+return result */
 }
-#endif //TP2_PIII_FOLCO_TZVIR_MERGE_H
+#endif //TP2_PIII_FOLCO_TZVIR_MERGE_EDAD_H

@@ -15,13 +15,18 @@ int main(int argc, char *argv[]) {
         // Suficientes argumentos para seguir
         if (std::string(argv[1]) == "-p_casos") {
             std::cout << "Realizando analisis de casos...";
+            int cant=0;
+            std::string file;
             try {
-                int cant = std::stoi(argv[2]);
+                cant = std::stoi(argv[2]);
                 std::cout << " (con cantidad)" << std::endl;
+                file=std::string(argv[3]);
             } catch (...) {
                 std::cout << " (sin cantidad)" << std::endl;
+                file=std::string(argv[2]);
+                cant=0;
             }
-           p_casos();
+           p_casos(cant, file);
         }
 
         if (std::string(argv[1]) == "-casos_cui") {

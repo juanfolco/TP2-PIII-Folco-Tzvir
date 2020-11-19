@@ -15,7 +15,7 @@ private:
   Node<T> *actual;
 public:
     Node<T> *getActual() const;
-
+    Node<T> *getNodepub(unsigned int pos) const;
 public:
   List();
 
@@ -26,6 +26,18 @@ public:
   bool isEmpty();
 
   unsigned int getSize();
+
+  void checkSize(){
+      Node<T> *aux1 = begin;
+      size = 0;
+      if (begin == nullptr) {
+
+      }
+      while (aux1 != nullptr) {
+          aux1 = aux1->getNext();
+          size++;
+      }
+  };
 
   void insert(unsigned int pos, T data);
 
@@ -235,7 +247,10 @@ template <class T> void List<T>::replace(int pos, T data) {}
  * Función que vacia la lista enlazada
  * @tparam T
  */
-template <class T> void List<T>::empty() {}
+template <class T> void List<T>::empty() {
+    size=0;
+    begin=nullptr;
+}
 
 template <class T> unsigned int List<T>::findIdx(T toFind) {
   Node<T> *aux = begin;
@@ -281,9 +296,23 @@ template <class T> void List<T>::print() {
   std::cout << " " << std::endl;
 }
 
-template<class T>
-Node<T> *List<T>::getActual() const {
+template<class T> Node<T> *List<T>::getActual() const {
     return actual;
 }
+template <class T> Node<T> *List<T>::getNodepub(unsigned int pos) const {
+    Node<T> *aux = begin;
+    unsigned int p = 0;
 
+    if (pos >= size)
+        throw 404;
+
+    while (p < pos && aux != nullptr) {
+        aux = aux->getNext();
+        p++;
+    }
+    if (aux == nullptr)
+        throw 404;
+
+    return aux;
+}
 #endif // U02_LISTAS_LISTA_LISTA_H_

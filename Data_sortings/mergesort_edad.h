@@ -1,9 +1,9 @@
 
-#ifndef TP2_PIII_FOLCO_TZVIR_MERGESORT_H
-#define TP2_PIII_FOLCO_TZVIR_MERGESORT_H
+#ifndef TP2_PIII_FOLCO_TZVIR_MERGESORT_EDAD_H
+#define TP2_PIII_FOLCO_TZVIR_MERGESORT_EDAD_H
 #include "ListCasos.h"
 #include "../Methods/Paciente.h"
-#include "merge.h"
+#include "merge_edad.h"
 
 List<Paciente> mergesort(List<Paciente> x){
     int size=x.getSize();
@@ -32,4 +32,4 @@ List<Paciente> mergesort(List<Paciente> x){
 // Then merge the now-sorted sublists.
     return merge(left, right)
 
-#endif //TP2_PIII_FOLCO_TZVIR_MERGESORT_H
+#endif //TP2_PIII_FOLCO_TZVIR_MERGESORT_EDAD_H

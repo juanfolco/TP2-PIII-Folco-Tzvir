@@ -1,31 +1,32 @@
 #ifndef TP2_PIII_FOLCO_TZVIR_MERGE_EDAD_H
 #define TP2_PIII_FOLCO_TZVIR_MERGE_EDAD_H
 using namespace std;
-List<Paciente> merge(List<Paciente> a, List<Paciente> b){
-    List<Paciente> result;
-string left; string right;
+List<estado> mergenum(List<estado> a, List<estado> b){
+    List<estado> result;
+int left; int right;
+a.checkSize();b.checkSize();
 while(!a.isEmpty() && !b.isEmpty()) {
-    a.start();
-    left = a.getActual()->getData().getProvincia();
-    b.start();
-    right = b.getActual()->getData().getProvincia();
-}
-/*
-if first(left) ≤ first(right) then
-        append first(left) to result
-left := rest(left)
-else
-append first(right) to result
-right := rest(right)
+    left = a.get(0).getCantidad();
+    right = b.get(0).getCantidad();
+    if (left <= right){
+        result.push_back(b.get(0));
+        b.remove(0);
+    }
+    else{
+        result.push_back(a.get(0));
+        a.remove(0);
+    }
 }
 // Either left or right may have elements left; consume them.
 // (Only one of the following loops will actually be entered.)
-while left is not empty do
-append first(left) to result
-left := rest(left)
-while right is not empty do
-append first(right) to result
-right := rest(right)
-return result */
+while(!a.isEmpty()){
+    result.push_back(a.get(0));
+    a.remove(0);
+}
+while(!b.isEmpty()){
+    result.push_back(b.get(0));
+    b.remove(0);
+}
+return result;
 }
 #endif //TP2_PIII_FOLCO_TZVIR_MERGE_EDAD_H
