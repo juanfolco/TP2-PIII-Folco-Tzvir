@@ -1,6 +1,7 @@
 #ifndef U02_LISTAS_LISTA_LISTA_H_
 #define U02_LISTAS_LISTA_LISTA_H_
 #include "Node.h"
+#include <iostream>
 
 /**
  * Clase que implementa una List Enlasada generica, ya que puede

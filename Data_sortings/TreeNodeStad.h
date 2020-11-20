@@ -1,9 +1,12 @@
 #ifndef U06_ARBOL_ARBOL_TREENODE_H_
 #define U06_ARBOL_ARBOL_TREENODE_H_
 
+#include <ostream>
+
 template <class T> class TreeNode {
 private:
     TreeNode<T> *left, *right;
+    T data;
     int min_edad;
     int max_edad;
     int cantidad;
@@ -30,6 +33,19 @@ public:
 
     void setCantidad(int cantidad) {
         TreeNode::cantidad = cantidad;
+    }
+
+    T getData() const {
+        return data;
+    }
+
+    void setData(T data) {
+        TreeNode::data = data;
+    }
+
+    friend std::ostream &operator<<(std::ostream &os, const TreeNode &node) {
+        os << "cantidad: " << node.cantidad;
+        return os;
     }
 
 public:

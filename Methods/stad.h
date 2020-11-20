@@ -5,19 +5,19 @@
 #include <string.h>
 #include <sstream>
 #include "Paciente.h"
-#include "../Data_sortings/BinaryTreeStad.h"
+#include "../Data_sortings/AVLTree.h"
 using namespace std;
 int stad(){
     ifstream input;
-    input.open("Covid19Casos-1000.csv");
+    input.open("..\\Test_files\\Covid19Casos-1000.csv");
     if(input.fail()){
         cout << "Error: no se puede abrir el archivo o no existe." << endl;
         return 1;
     }
     cout << "Leyendo archivo..." << endl;
     string placeholder;
-    int total=0,edad=0,infectados=0,fallecidos=0;
-    BinaryTree<unsigned int> rango;
+    int total=0,edad,infectados=0,fallecidos=0;
+    AVLTree<Paciente> rango;
    // Cantidad de infectados por rango etario (rango de 10 años)
    // Cantidad de muertes por rango etario (rango de 10 años)
     while(getline(input, placeholder, ',')){
@@ -41,8 +41,15 @@ int stad(){
         int mrango=edad/10;
         int minrango=mrango*10;
         int maxrango=mrango*10+9;
-        cout<<minrango << " " << maxrango << endl;
-        //Acá debe ir un árbol binario de rangos pero todavía queda pendiente la implementación apropiada
+           /* for (int i=maxrango;i > minrango;++i) {
+                rango.put(i);
+            }
+            while (mrango > minrango || mrango < maxrango) {
+                rango.print();
+            }*/
+
+        cout << minrango << " " << maxrango << " es de " << endl;
+        //rango.print();
 
         getline(input, placeholder, ',') ; //pais donde vive
         getline(input, placeholder, ',') ; //provincia donde vive
