@@ -9,7 +9,7 @@
 using namespace std;
 int stad(){
     ifstream input;
-    input.open("..\\Test_files\\Covid19Casos-10.csv");
+    input.open("Covid19Casos-1000.csv");
     if(input.fail()){
         cout << "Error: no se puede abrir el archivo o no existe." << endl;
         return 1;
@@ -23,67 +23,55 @@ int stad(){
     while(getline(input, placeholder, ',')){
         total++;
         cout << "Caso " << total<< " " << placeholder << " " <<endl; //ID
+        getline(input, placeholder, ',') ; //Genero
 
-        getline(input, placeholder, ',') ; //el Dato no importa
-
-        getline(input, placeholder, ',') ; //edad
-        cout << "Edad: " << placeholder << " " <<endl ;
-        stringstream temp(placeholder);
-        temp >> edad;
+        getline(input, placeholder, '"'); //Captar inicio de comillas
+        getline(input, placeholder, '"'); //edad
+        cout << "Edad: " << placeholder << " " << endl;
+        try{
+            edad=std::stoi(placeholder); //¿Está la edad puesta?
+        }catch(...){
+            edad=0; //Si no tiene edad se deja vacío
+        }
+        getline(input, placeholder, ','); // Captar fin de comillas
         getline(input, placeholder, ',') ; //si la edad son años o meses
         if(placeholder == "\"Meses\""){
             edad=0;
         }
-        int mrango=edad%10;
+        int mrango=edad/10;
+        int minrango=mrango*10;
+        int maxrango=mrango*10+9;
+        cout<<minrango << " " << maxrango << endl;
         //Acá debe ir un árbol binario de rangos pero todavía queda pendiente la implementación apropiada
 
         getline(input, placeholder, ',') ; //pais donde vive
-
         getline(input, placeholder, ',') ; //provincia donde vive
-        cout << "Provincia: " <<  placeholder<< " "  <<endl;
-
         getline(input, placeholder, ',') ; //departamento donde vive
-        cout << "Dato: " <<  placeholder<< " "  <<endl;
         getline(input, placeholder, ',') ; //provincia donde se examina
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; //fecha de inicio de sintomas (en formato fecha)
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; //fecha donde se consulto con medico? (en formato fecha)
-        cout << "Dato: " <<  placeholder<< " "  <<endl;
         getline(input, placeholder, ',') ; //semana de consulta con doctor (en numero del 2020)
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; // fecha si es que se interno
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; //estuvo en cui?
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; //cuando estuvo en cui?
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; //murio?
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
+        cout << "Muerte: " <<  placeholder<< " " <<endl ;
         if(placeholder == "\"SI\"")
             fallecidos++;
         getline(input, placeholder, ',') ; //si murio, cuando?
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; //estuvo en asistencia respiratoria?
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; //codigo de la provincia de ingreso
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; //financiamiento publico o privado
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; //Estado del paciente
-        cout << "Dato: " <<  placeholder<< " " <<endl ;
         getline(input, placeholder, ',') ; //resumen del estado
         if(placeholder == "\"Confirmado\"")
             infectados++;
-        cout << "Dato: " <<  placeholder<< " "  <<endl;
+        cout << "Resumen: " <<  placeholder<< " "  <<endl;
         getline(input, placeholder, ',') ; //id de provincia donde vive
-        cout << "Dato: " <<  placeholder<< " "  <<endl;
         getline(input, placeholder, ',') ; //fecha de diagnostico
-        cout << "Dato: " <<  placeholder<< " "  <<endl;
         getline(input, placeholder, ',') ; //id de departamento donde vive
-        cout << "Dato: " <<  placeholder<< " "  <<endl;
         getline(input, placeholder) ; //ultima actualizacion
-        cout << "Dato: " <<  placeholder<< " " << endl << endl;
+        cout<<endl;
     }
     cout << "Cantidad de muestras: " << total << endl;
     cout << "Cantidad de infectados: " << infectados << endl;

@@ -15,7 +15,7 @@ using namespace std;
 
 int p_casos(int n, string f) {
     ifstream input;
-    input.open(f.c_str()); //necesario para convertirlo a algo leible del file.open (aun falla)
+    input.open(f.c_str()); //necesario para convertirlo a algo leible del file.open
     if (input.fail()) {
         cout << "Error: no se puede abrir el archivo o no existe." << endl;
         return 1;
@@ -73,7 +73,10 @@ int p_casos(int n, string f) {
         cout << endl;
     }
     List<estado> final=mergesortnum(provincias);
-    final.print();
+    if(n==0) {
+        final.print();
+        return 0;
+    }
     return 0;
 }
 
