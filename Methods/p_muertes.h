@@ -6,7 +6,6 @@
 #include <fstream>
 #include <string.h>
 #include <string>
-#include <sstream>
 #include "Paciente.h"
 #include "estado.h"
 #include "../Data_sortings/ListCasos.h"
@@ -14,9 +13,9 @@
 using namespace std;
 
 
-int p_muertes() {
+int p_muertes(int n, string f) {
     ifstream input;
-    input.open("..\\Test_files\\Covid19Casos-1000.csv");
+    input.open(f.c_str());
     if (input.fail()) {
         cout << "Error: no se puede abrir el archivo o no existe." << endl;
         return 1;
@@ -58,7 +57,6 @@ int p_muertes() {
             }
             if (provincias.isEmpty())
                 provincias.push_front(temp);
-            //falta ordenamiento y poner esto en una función aparte
         }
         cout<< "Se murio? " << placeholder << endl;
         getline(input, placeholder, ','); //si murio, cuando?
@@ -75,7 +73,12 @@ int p_muertes() {
         getline(input, placeholder); //ultima actualizacion
         cout << endl;
     }
-    provincias.print();
+    List<estado> final=mergesortnum(provincias);
+    if(n==0) {
+        final.print();
+        return 0;
+    }
+    final.printn(n);
     return 0;
 }
 #endif //TP2_PIII_FOLCO_TZVIR_P_MUERTES_H

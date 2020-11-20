@@ -8,7 +8,6 @@
 #include <fstream>
 #include <string.h>
 #include <string>
-#include <sstream>
 #include "Paciente.h"
 #include "../Data_sortings/HashMap.h"
 #include "../Data_sortings/ListCasos.h"
@@ -17,9 +16,9 @@
 using namespace std;
 
 
-int casos_edad(unsigned int x) {
+int casos_edad(unsigned int x, const string& f) {
     ifstream input;
-    input.open("..\\Test_files\\Covid19Casos-1000.csv");
+    input.open(f.c_str());
     if (input.fail()) {
         cout << "Error: no se puede abrir el archivo o no existe." << endl;
         return 1;
@@ -76,7 +75,7 @@ int casos_edad(unsigned int x) {
             Paciente temppac(id,genero,edad,nompais,nomprov,nomdep,nomprove,iniciosint,medicoc,semmedicoc,fechaint,cui,fechacui,muerte,fechamuerte,asistenciaresp,codigoproving,financiamiento,estadopac,resumenestado,idprov,fechadiag,iddepart,actualizacion);
             delaedad.push_front(temppac);
         }
-        //mergesort(delaedad);
+        //mergesort(delaedad); falta saber cómo ordenarlos por provincia
     }delaedad.print();
    return 0;
 

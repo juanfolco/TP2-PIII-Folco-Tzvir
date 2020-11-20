@@ -5,7 +5,6 @@
 #include <fstream>
 #include <string.h>
 #include <string>
-#include <sstream>
 #include "estado.h"
 #include "../Data_sortings/ListCasos.h"
 #include "../Data_sortings/mergesort_num.h"
@@ -13,7 +12,7 @@
 using namespace std;
 
 
-int p_casos(int n, string f) {
+int p_casos(int n, const string& f) {
     ifstream input;
     input.open(f.c_str()); //necesario para convertirlo a algo leible del file.open
     if (input.fail()) {
@@ -77,6 +76,7 @@ int p_casos(int n, string f) {
         final.print();
         return 0;
     }
+    final.printn(n);
     return 0;
 }
 

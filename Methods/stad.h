@@ -7,9 +7,9 @@
 #include "Paciente.h"
 #include "../Data_sortings/BinaryTreeStad.h"
 using namespace std;
-int stad(){
+int stad(string f){
     ifstream input;
-    input.open("Covid19Casos-1000.csv");
+    input.open(f.c_str());
     if(input.fail()){
         cout << "Error: no se puede abrir el archivo o no existe." << endl;
         return 1;
