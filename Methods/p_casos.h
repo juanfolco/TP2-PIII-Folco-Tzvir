@@ -12,7 +12,7 @@
 using namespace std;
 
 
-int p_casos(int n, const string& f) {
+int p_casos(int n, const string &f) {
     ifstream input;
     input.open(f.c_str()); //necesario para convertirlo a algo leible del file.open
     if (input.fail()) {
@@ -56,12 +56,12 @@ int p_casos(int n, const string& f) {
                     provincias.end();
                 } else {
                     provincias.next();
-                    if(provincias.isEnd())
-                        provincias.push_front(temp);
+                    if (provincias.isEnd())
+                        provincias.push_front(temp); //tabla de hash
                 }
-            }if (provincias.isEmpty())
+            }
+            if (provincias.isEmpty())
                 provincias.push_front(temp);
-            //falta poner esto en una función aparte
         }
         cout << "Estado: " << placeholder << " " << endl;
         getline(input, placeholder, ','); //id de provincia donde vive
@@ -71,8 +71,8 @@ int p_casos(int n, const string& f) {
         getline(input, placeholder); //ultima actualizacion
         cout << endl;
     }
-    List<estado> final=mergesortnum(provincias);
-    if(n==0) {
+    List<estado> final = mergesortnum(provincias);
+    if (n == 0) {
         final.print();
         return 0;
     }

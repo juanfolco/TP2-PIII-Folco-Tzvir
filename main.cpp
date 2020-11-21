@@ -7,26 +7,26 @@
 #include "Methods/casos_cui.h"
 
 int main(int argc, char *argv[]) {
-  // std::cout << "Cantidad de argumentos: " << argc << std::endl;
-  // for (int i = 0; i < argc; ++i) {
-  //     std::cout << "Valor " << i << "\t" << argv[i] << std::endl;
-  // }
+    // std::cout << "Cantidad de argumentos: " << argc << std::endl;
+    // for (int i = 0; i < argc; ++i) {
+    //     std::cout << "Valor " << i << "\t" << argv[i] << std::endl;
+    // }
     if (argc >= 3) {
         // Suficientes argumentos para seguir
         if (std::string(argv[1]) == "-p_casos") {
             std::cout << "Realizando analisis de casos...";
-            int cant=0;
+            int cant = 0;
             std::string file;
             try {
                 cant = std::stoi(argv[2]);
                 std::cout << " (con cantidad)" << std::endl;
-                file=std::string(argv[3]);
+                file = std::string(argv[3]);
             } catch (...) {
                 std::cout << " (sin cantidad)" << std::endl;
-                file=std::string(argv[2]);
-                cant=0;
+                file = std::string(argv[2]);
+                cant = 0;
             }
-           p_casos(cant, file);
+            p_casos(cant, file);
         }
 
         if (std::string(argv[1]) == "-casos_cui") {
@@ -47,14 +47,14 @@ int main(int argc, char *argv[]) {
         if (std::string(argv[1]) == "-p_muertes") {
             std::cout << "Realizando analisis de muertes...";
             std::string file;
-            int cant=0;
+            int cant = 0;
             try {
-                cant=std::stoi(argv[2]);
+                cant = std::stoi(argv[2]);
                 std::cout << " (con cantidad)" << std::endl;
-                file=std::string(argv[3]);
+                file = std::string(argv[3]);
             } catch (...) {
                 std::cout << " (sin cantidad)" << std::endl;
-                file=std::string(argv[2]);
+                file = std::string(argv[2]);
             }
             p_muertes(cant, file);
         }
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
             try {
                 unsigned int cant = std::stoi(argv[2]);
                 std::cout << " (con edad de " << cant << " anios)" << std::endl;
-                file=std::string(argv[3]);
+                file = std::string(argv[3]);
             } catch (...) {
                 std::cout << "Error: no se ha ingresado la edad requerida." << std::endl;
             }
@@ -75,11 +75,11 @@ int main(int argc, char *argv[]) {
 
         if (std::string(argv[1]) == "-stad") {
             std::cout << "Mostrando estadisticas..." << std::endl;
-            std::string file=std::string(argv[2]);
+            std::string file = std::string(argv[2]);
             stad(file);
         }
-    }else{
-        std::cout<<"Error: argumentos no ingresados correctamente." << std::endl;
+    } else {
+        std::cout << "Error: argumentos no ingresados correctamente." << std::endl;
     }
     std::cout << "Finalizado." << std::endl;
     return 0;

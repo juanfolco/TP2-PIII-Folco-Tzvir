@@ -8,6 +8,8 @@
 #include <sstream>
 #include "Paciente.h"
 #include "../Data_sortings/ListCasos.h"
+#include "../Data_sortings/mergesortfecha.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -22,7 +24,8 @@ int casos_cui(const string &x, const string &f) {
     cout << "Leyendo archivo..." << endl;
     string placeholder, genero, nomprov, nompais, nomdep, nomprove, iniciosint, medicoc, fechaint, cui, fechacui;
     string muerte, fechamuerte, asistenciaresp, financiamiento, estadopac, resumenestado, fechadiag, actualizacion;
-    int total = 0, edad = 0; string id, semmedicoc, codigoproving, idprov, iddepart;
+    int total = 0, edad = 0;
+    string id, semmedicoc, codigoproving, idprov, iddepart;
     List<Paciente> delcui;
     while (getline(input, id, ',')) {
         total++;
@@ -72,11 +75,14 @@ int casos_cui(const string &x, const string &f) {
             delcui.push_front(temppac);
         }
     }
+    List<Paciente> sorteado = mergesortcui(delcui);
+
     if (x == "1970-01-01") {
-        delcui.print();
+        sorteado.print();
         return 0;
     }
-    //delcui.printf(); Falta ordenar las fechas para pasárselo
+    string aux = "\"" + x + "\"";
+    sorteado.printf(aux);
     return 0;
 }
 

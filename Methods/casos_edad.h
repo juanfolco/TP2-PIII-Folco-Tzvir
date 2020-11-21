@@ -4,6 +4,7 @@
 
 #ifndef TP2_PIII_FOLCO_TZVIR_CASOS_EDAD_H
 #define TP2_PIII_FOLCO_TZVIR_CASOS_EDAD_H
+
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -11,12 +12,12 @@
 #include "Paciente.h"
 #include "../Data_sortings/HashMap.h"
 #include "../Data_sortings/ListCasos.h"
-#include "../Data_sortings/mergesort_edad.h"
+#include "../Data_sortings/mergesort.h"
 
 using namespace std;
 
 
-int casos_edad(unsigned int x, const string& f) {
+int casos_edad(unsigned int x, const string &f) {
     ifstream input;
     input.open(f.c_str());
     if (input.fail()) {
@@ -24,9 +25,10 @@ int casos_edad(unsigned int x, const string& f) {
         return 1;
     }
     cout << "Leyendo archivo..." << endl;
-    string placeholder,genero,nomprov,nompais,nomdep,nomprove,iniciosint,medicoc,fechaint,cui,fechacui;
-    string muerte,fechamuerte,asistenciaresp,financiamiento,estadopac,resumenestado,fechadiag, actualizacion;
-    unsigned int total = 0, edad=0; string id;
+    string placeholder, genero, nomprov, nompais, nomdep, nomprove, iniciosint, medicoc, fechaint, cui, fechacui;
+    string muerte, fechamuerte, asistenciaresp, financiamiento, estadopac, resumenestado, fechadiag, actualizacion;
+    unsigned int total = 0, edad = 0;
+    string id;
     string semmedicoc, codigoproving, idprov, iddepart;
     List<Paciente> delaedad;
     while (getline(input, id, ',')) {
@@ -37,10 +39,10 @@ int casos_edad(unsigned int x, const string& f) {
         getline(input, placeholder, '"'); //Captar inicio de comillas
         getline(input, placeholder, '"'); //edad
         cout << "Edad: " << placeholder << " " << endl;
-        try{
-            edad=std::stoi(placeholder); //¿Está la edad puesta?
-        }catch(...){
-            edad=0; //Si no tiene edad se deja vacío
+        try {
+            edad = std::stoi(placeholder); //¿Está la edad puesta?
+        } catch (...) {
+            edad = 0; //Si no tiene edad se deja vacío
         }
         getline(input, placeholder, ','); // Captar fin de comillas
 
@@ -71,13 +73,18 @@ int casos_edad(unsigned int x, const string& f) {
         getline(input, iddepart, ','); //id de departamento donde vive
         getline(input, actualizacion); //ultima actualizacion
         cout << endl;
-        if(edad == x){
-            Paciente temppac(id,genero,edad,nompais,nomprov,nomdep,nomprove,iniciosint,medicoc,semmedicoc,fechaint,cui,fechacui,muerte,fechamuerte,asistenciaresp,codigoproving,financiamiento,estadopac,resumenestado,idprov,fechadiag,iddepart,actualizacion);
+        if (edad == x) {
+            Paciente temppac(id, genero, edad, nompais, nomprov, nomdep, nomprove, iniciosint, medicoc, semmedicoc,
+                             fechaint, cui, fechacui, muerte, fechamuerte, asistenciaresp, codigoproving,
+                             financiamiento, estadopac, resumenestado, idprov, fechadiag, iddepart, actualizacion);
             delaedad.push_front(temppac);
         }
-        //mergesort(delaedad); falta saber cómo ordenarlos por provincia
-    }delaedad.print();
-   return 0;
+    }
+
+    List<Paciente> sorteado = mergesort(delaedad); //falta saber cómo ordenarlos por provincia
+    sorteado.print();
+    return 0;
 
 }
+
 #endif //TP2_PIII_FOLCO_TZVIR_CASOS_EDAD_H

@@ -46,12 +46,24 @@ public:
 
     void printn(unsigned int n) {
         Node<T> *aux = begin;
-        int i=0;
-        while (aux != nullptr && i<n) {
+        int i = 0;
+        while (aux != nullptr && i < n) {
             std::cout << aux->getData() << " -> ";
             std::cout << std::endl;
             aux = aux->getNext();
             i++;
+        }
+        std::cout << " " << std::endl;
+    }
+
+    void printf(const string &n) {
+        Node<T> *aux = begin;
+        while (aux != nullptr) {
+            if (aux->getData().getCuif() >= n) {
+                std::cout << aux->getData() << " -> ";
+                std::cout << std::endl;
+            }
+            aux = aux->getNext();
         }
         std::cout << " " << std::endl;
     }
