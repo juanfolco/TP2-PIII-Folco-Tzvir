@@ -1,11 +1,11 @@
 #ifndef U05_HASH_HASHMAP_HASHENTRY_H_
 #define U05_HASH_HASHMAP_HASHENTRY_H_
-template <class T, class K> class HashEntry {
+template <class T, class K> class HashEntryCasos {
 private:
   K key;
   T dato;
 public:
-  HashEntry (K key, T dato) :key(key), dato(dato) {}
+  HashEntryCasos (K key, T dato) : key(key), dato(dato) {}
 
 };
 

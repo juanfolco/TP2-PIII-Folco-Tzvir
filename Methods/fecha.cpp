@@ -10,19 +10,11 @@ dia=d;
 mes=m;
 }
 
-void Fecha::setDia(int d) {
-dia=d;
-}
+void Fecha::setDia(int d) { dia=d; }
 
-void Fecha::setMes(int m) {
-mes=m;
-}
+void Fecha::setMes(int m) { mes=m; }
 
-int Fecha::getDia() {
-return dia;
-}
+int Fecha::getDia() { return dia; }
 
-int Fecha::getMes() {
-return mes;
-}
+int Fecha::getMes() { return mes; }
 

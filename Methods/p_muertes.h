@@ -1,4 +1,3 @@
-
 #ifndef TP2_PIII_FOLCO_TZVIR_P_MUERTES_H
 #define TP2_PIII_FOLCO_TZVIR_P_MUERTES_H
 
@@ -6,17 +5,23 @@
 #include <fstream>
 #include <string.h>
 #include <string>
-#include <sstream>
 #include "Paciente.h"
 #include "estado.h"
 #include "../Data_sortings/ListCasos.h"
 
 using namespace std;
 
+/**
+ * Mostrará las n provincias con más muertes ordenadas de más a menos. Si n no es pasado, se mostrarán
+ * todas las provincias.
+ * @param n variable int que me permitirá la muestra las provincias con mayor cantidad de muertes
+ * @param f variable string opción argumento ingresado por el usuario
+ * @return lista de provincias con más muertes ordenadas de más a menos
+ */
 
-int p_muertes() {
+int p_muertes(int n, string f) {
     ifstream input;
-    input.open("..\\Test_files\\Covid19Casos-1000.csv");
+    input.open(f.c_str());
     if (input.fail()) {
         cout << "Error: no se puede abrir el archivo o no existe." << endl;
         return 1;
@@ -25,6 +30,11 @@ int p_muertes() {
     string placeholder, nomprov;
     int total = 0;
     List<estado> provincias;
+
+    /**
+     * Lectura del archivo .CSV a través de getline
+     */
+
     while (getline(input, placeholder, ',')) {
         total++;
         cout << "Caso " << total << " " << placeholder << " " << endl; //ID
@@ -43,6 +53,13 @@ int p_muertes() {
         getline(input, placeholder, ','); //estuvo en cui?
         getline(input, placeholder, ','); //cuando estuvo en cui?
         getline(input, placeholder, ','); //murio?
+        /**
+      * Generación de lista para comparar provincias
+      * En caso de que la provincia ya se encuentre, se incrementa el número. En caso contrario,
+      * se forma un nuevo contador
+      * @param temp(nomprov,cantidad) = lista donde se almacena el nombre de las provincias
+      * @param nomprov = nombres de las provincias
+      */
         if (placeholder == "\"SI\"") {
             estado temp(nomprov, 1);
             provincias.start();
@@ -58,7 +75,6 @@ int p_muertes() {
             }
             if (provincias.isEmpty())
                 provincias.push_front(temp);
-            //falta ordenamiento y poner esto en una función aparte
         }
         cout<< "Se murio? " << placeholder << endl;
         getline(input, placeholder, ','); //si murio, cuando?
@@ -75,7 +91,20 @@ int p_muertes() {
         getline(input, placeholder); //ultima actualizacion
         cout << endl;
     }
-    provincias.print();
+
+    /**
+   * Lista con algoritmo de ordenamiento
+   * Si no se presenta variable n, imprime todas las provincias. En caso contrario, se muestra provincias
+   * con mayor cantidad de muertes ordenadas de más a menos
+   * @param final = lista con las provincias y el algoritmo de ordenamiento para ordenar las mismas
+   */
+
+    List<estado> final=mergesortnum(provincias);
+    if(n==0) {
+        final.print();
+        return 0;
+    }
+    final.printn(n);
     return 0;
 }
 #endif //TP2_PIII_FOLCO_TZVIR_P_MUERTES_H

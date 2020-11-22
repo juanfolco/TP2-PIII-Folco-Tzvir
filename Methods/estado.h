@@ -13,7 +13,6 @@
 using namespace std;
 class estado {
 private:
-
     string nombre;
     unsigned int cantidad;
 public:
@@ -24,29 +23,21 @@ public:
         return os;
     }
 
-    const string &getNombre() const {
-        return nombre;
-    }
+    const string &getNombre() const { return nombre; }
 
-    void setNombre(string &nombre) {
-        estado::nombre = nombre;
-    }
+    void setNombre(string &nombre) { estado::nombre = nombre; }
 
-    unsigned int getCantidad() const {
-        return cantidad;
-    }
+    unsigned int getCantidad() const { return cantidad; }
 
-    void setCantidad(unsigned int cant) {
-        estado::cantidad = cant;
-    }
+    void setCantidad(unsigned int cant) { estado::cantidad = cant; }
 
     void addCant() {
         int a=estado::cantidad;
         a++;
         estado::cantidad = a;
     }
-    bool operator==(const estado &rhs) const { return nombre == rhs.nombre; }
 
+    bool operator==(const estado &rhs) const { return nombre == rhs.nombre; }
     bool operator!=(const estado &rhs) const { return !(nombre == rhs.nombre); }
 };
 #endif //TP2_PIII_FOLCO_TZVIR_ESTADO_H
