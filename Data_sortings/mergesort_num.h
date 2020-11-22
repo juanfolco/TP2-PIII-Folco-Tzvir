@@ -5,6 +5,13 @@
 #include "../Methods/estado.h"
 #include "merge_num.h"
 
+/**
+ * Algoritmo de ordenamiento merge que compara listas
+ * @param a = lista tipo estado 1
+ * @param b = lista tipo estado 2
+ * @return ordenamiento de listas de mayor a menor de casos con muertes
+ */
+
 List<estado> mergesortnum(List<estado> x) {
     x.checkSize();
     int size = x.getSize();

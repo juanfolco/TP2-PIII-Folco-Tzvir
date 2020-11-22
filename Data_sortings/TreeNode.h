@@ -1,6 +1,10 @@
 #ifndef U06_ARBOL_ARBOL_TREENODE_H_
 #define U06_ARBOL_ARBOL_TREENODE_H_
 
+/**
+ * Nodo de árbol binario balanceado
+ */
+
 template<class T>
 class TreeNode {
 private:

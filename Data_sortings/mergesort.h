@@ -1,12 +1,15 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
 #ifndef TP2_PIII_FOLCO_TZVIR_MERGESORT_H
 #define TP2_PIII_FOLCO_TZVIR_MERGESORT_H
 #include "ListCasos.h"
 #include "../Methods/Paciente.h"
 #include "merge.h"
+
+/**
+* Algoritmo de ordenamiento merge que compara listas
+* @param a = lista tipo paciente 1
+* @param b = lista tipo paciente 2
+* @return ordenamiento de listas de mayor a menor
+*/
 
 List<Paciente> mergesort(List<Paciente> x) {
     x.checkSize();

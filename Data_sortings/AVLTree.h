@@ -357,8 +357,4 @@ int AVLTree<T>::max(int a, int b) {
         return b;
 }
 
-<<<<<<< HEAD
 #endif // U06_ARBOL_ARBOL_AVLTREE_H_
-=======
-#endif // U06_ARBOL_ARBOL_AVLTREE_H_
->>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c

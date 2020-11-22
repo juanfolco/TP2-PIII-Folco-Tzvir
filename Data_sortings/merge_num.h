@@ -9,6 +9,7 @@ using namespace std;
  * @param b = lista tipo estado 2
  * @return ordenamiento de listas de mayor a menor de casos con muertes
  */
+
 List<estado> mergenum(List<estado> a, List<estado> b){
     List<estado> result;
     int left; int right;

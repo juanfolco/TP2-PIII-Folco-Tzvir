@@ -9,7 +9,7 @@
 #include "fecha.cpp"
 
 /**
- * Clase con los datos del paciente presentada en el archivo .CSV
+ * Clase con los datos del paciente presentados en el archivo .CSV
  */
 
 class Paciente {

@@ -13,7 +13,6 @@
 
 using namespace std;
 
-<<<<<<< HEAD
 /**
  * Mostrará los datos de los casos que estuvieron en cuidados intensivos ordenados por fecha de
  * cuidados intensivos, si fecha está indicada, se mostrarán solo las fechas mayores a esta.
@@ -22,8 +21,6 @@ using namespace std;
  * @return lista de provincias con más muertes ordenadas de más a menos
  */
 
-=======
->>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
 int casos_cui(const string &x, const string &f) {
     ifstream input;
     input.open(f.c_str());
@@ -38,14 +35,11 @@ int casos_cui(const string &x, const string &f) {
     int total = 0, edad = 0;
     string id, semmedicoc, codigoproving, idprov, iddepart;
     List<Paciente> delcui;
-<<<<<<< HEAD
 
     /**
     * Lectura del archivo .CSV a través de getline
     */
 
-=======
->>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
     while (getline(input, id, ',')) {
         total++;
         cout << "Caso " << total << " " << id << " " << endl; //ID
@@ -87,15 +81,12 @@ int casos_cui(const string &x, const string &f) {
         getline(input, iddepart, ','); //id de departamento donde vive
         getline(input, actualizacion); //ultima actualizacion
         cout << endl;
-<<<<<<< HEAD
 
         /**
         * Inserción de los datos a la lista
         * @param temppac variable tipo paciente donde presenta todos los datos del paciente
         */
 
-=======
->>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
         if (cui == "\"SI\"") {
             Paciente temppac(id, genero, edad, nompais, nomprov, nomdep, nomprove, iniciosint, medicoc, semmedicoc,
                              fechaint, cui, fechacui, muerte, fechamuerte, asistenciaresp, codigoproving,
@@ -103,7 +94,6 @@ int casos_cui(const string &x, const string &f) {
             delcui.push_front(temppac);
         }
     }
-<<<<<<< HEAD
 
     /**
   * Lista con algoritmo de ordenamiento
@@ -112,8 +102,6 @@ int casos_cui(const string &x, const string &f) {
   * @param sorteado = lista con casos de cuidados intensivos con algoritmo de ordenamiento aplicado
   */
 
-=======
->>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
     List<Paciente> sorteado = mergesortcui(delcui);
 
     if (x == "1970-01-01") {
@@ -125,8 +113,5 @@ int casos_cui(const string &x, const string &f) {
     return 0;
 }
 
-<<<<<<< HEAD
 #endif //TP2_PIII_FOLCO_TZVIR_CASOS_CUI_H
-=======
-#endif //TP2_PIII_FOLCO_TZVIR_CASOS_CUI_H
->>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
+

@@ -1,9 +1,10 @@
-//
-// Created by Folkius on 23/9/2020.
-//
 
 #ifndef PROGRAMACION3_NODE_H
 #define PROGRAMACION3_NODE_H
+
+/**
+ * Nodo de lista
+ */
 
 template <class T> class Node {
   T data;

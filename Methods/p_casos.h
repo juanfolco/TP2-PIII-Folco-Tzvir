@@ -92,7 +92,6 @@ int p_casos(int n, const string &f) {
         getline(input, placeholder); //ultima actualizacion
         cout << endl;
     }
-<<<<<<< HEAD
 
     /**
     * Lista con algoritmo de ordenamiento
@@ -101,8 +100,6 @@ int p_casos(int n, const string &f) {
     * @param final = lista con las provincias y el algoritmo de ordenamiento para ordenar las mismas
     */
 
-=======
->>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
     List<estado> final = mergesortnum(provincias);
     if (n == 0) {
         final.print();
