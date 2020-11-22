@@ -24,6 +24,7 @@ public:
     Node<T> *getNodepub(unsigned int pos) const;
 
     List();
+<<<<<<< HEAD
 
     List(const List<T> &li);
 
@@ -80,6 +81,93 @@ public:
 
     void printf(const string &n);
 
+=======
+
+    List(const List<T> &li);
+
+    ~List();
+
+    bool isEmpty();
+
+    unsigned int getSize();
+
+    void checkSize() {
+        Node<T> *aux1 = begin;
+        size = 0;
+        if (begin == nullptr) {
+
+        }
+        while (aux1 != nullptr) {
+            aux1 = aux1->getNext();
+            size++;
+        }
+    };
+
+    void printn(unsigned int n) {
+        Node<T> *aux = begin;
+        int i = 0;
+        while (aux != nullptr && i < n) {
+            std::cout << aux->getData() << " -> ";
+            std::cout << std::endl;
+            aux = aux->getNext();
+            i++;
+        }
+        std::cout << " " << std::endl;
+    }
+
+    void printf(const string &n) {
+        Node<T> *aux = begin;
+        while (aux != nullptr) {
+            if (aux->getData().getCuif() >= n) {
+                std::cout << aux->getData() << " -> ";
+                std::cout << std::endl;
+            }
+            aux = aux->getNext();
+        }
+        std::cout << " " << std::endl;
+    }
+
+    void insert(unsigned int pos, T data);
+
+    void push_front(T data);
+
+    void push_back(T data);
+
+    void remove(unsigned int pos);
+
+    T get(unsigned int pos);
+
+    void replace(int pos, T data);
+
+    void empty();
+
+    unsigned int findIdx(T toFind);
+
+    T find(T toFind);
+
+    T operator[](int i) { return get(i); }
+
+    void start() { actual = begin; }
+
+    bool isEnd() { return actual == nullptr; }
+
+    void next() { actual = actual->getNext(); }
+
+    void end() { actual = nullptr; }
+
+    T get() {
+        if (actual == nullptr)
+            throw 404;
+        return actual->getData();
+    }
+
+    List &operator++() {
+        next();
+        return *this;
+    }
+
+    void print();
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
 };
 
 /**
@@ -343,6 +431,7 @@ Node<T> *List<T>::getNodepub(unsigned int pos) const {
     return aux;
 }
 
+<<<<<<< HEAD
 /**
  * Función que me revisa el tamaño correcto
  * @tparam T
@@ -395,3 +484,6 @@ void List<T>::printf(const string &n){
 }
 
 #endif // U02_LISTAS_LISTA_LISTA_H_
+=======
+#endif // U02_LISTAS_LISTA_LISTA_H_
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c

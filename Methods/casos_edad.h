@@ -80,12 +80,15 @@ int casos_edad(unsigned int x, const string &f) {
         getline(input, iddepart, ','); //id de departamento donde vive
         getline(input, actualizacion); //ultima actualizacion
         cout << endl;
+<<<<<<< HEAD
 
         /**
        * Inserción de los datos a la lista
        * @param temppac variable tipo paciente donde presenta todos los datos del paciente
        */
 
+=======
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
         if (edad == x) {
             Paciente temppac(id, genero, edad, nompais, nomprov, nomdep, nomprove, iniciosint, medicoc, semmedicoc,
                              fechaint, cui, fechacui, muerte, fechamuerte, asistenciaresp, codigoproving,
@@ -94,16 +97,23 @@ int casos_edad(unsigned int x, const string &f) {
         }
     }
 
+<<<<<<< HEAD
     /**
    * Lista con algoritmo de ordenamiento
    * Se muestra los datos de los casos donde la edad sea ‘años’ (ordenados por nombre de provincia)
    * @param sorteado = lista con las edades y el algoritmo de ordenamiento para ordenar las provincias
    */
 
+=======
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
     List<Paciente> sorteado = mergesort(delaedad); //falta saber cómo ordenarlos por provincia
     sorteado.print();
     return 0;
 
 }
 
+<<<<<<< HEAD
 #endif //TP2_PIII_FOLCO_TZVIR_CASOS_EDAD_H
+=======
+#endif //TP2_PIII_FOLCO_TZVIR_CASOS_EDAD_H
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c

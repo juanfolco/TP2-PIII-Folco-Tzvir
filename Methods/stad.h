@@ -10,11 +10,15 @@
 #include "../Data_sortings/rango.h"
 
 using namespace std;
+<<<<<<< HEAD
 /**
  * Permite la muestra de información estadística
  * @param f = variable string opción argumento ingresado por el usuario
  * @return árbol binario y muestra de información estadística
  */
+=======
+
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
 int stad(string f) {
     ifstream input;
     input.open(f.c_str());
@@ -26,11 +30,14 @@ int stad(string f) {
     string placeholder;
     int total = 0, edad = 0, infectados = 0, fallecidos = 0;
     AVLTree<rango> arboldeinfectados, arboldefallecidos;
+<<<<<<< HEAD
 
     /**
      * Lectura del archivo .CSV a través de getline
      */
 
+=======
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
     while (getline(input, placeholder, ',')) {
         total++;
         cout << "Caso " << total << " " << placeholder << " " << endl; //ID
@@ -49,6 +56,7 @@ int stad(string f) {
         if (placeholder == "\"Meses\"") {
             edad = 0;
         }
+<<<<<<< HEAD
 
         /**
          * Aplicación de variables para árbol binario balanceado
@@ -63,6 +71,15 @@ int stad(string f) {
         rango dato(minrango, maxrango, 1);
         cout << minrango << " " << maxrango << endl;
 
+=======
+        int mrango = edad / 10;
+        int minrango = mrango * 10;
+        int maxrango = mrango * 10 + 9;
+        rango dato(minrango, maxrango, 1);
+        cout << minrango << " " << maxrango << endl;
+        //Acá debe ir un árbol binario de rangos pero todavía queda pendiente la implementación apropiada
+
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
         getline(input, placeholder, ','); //pais donde vive
         getline(input, placeholder, ','); //provincia donde vive
         getline(input, placeholder, ','); //departamento donde vive
@@ -75,6 +92,7 @@ int stad(string f) {
         getline(input, placeholder, ','); //cuando estuvo en cui?
         getline(input, placeholder, ','); //murio?
         cout << "Muerte: " << placeholder << " " << endl;
+<<<<<<< HEAD
 
         /**
          * Condicional que en caso de que haya un paciente fallecido en el archivo .CSV realiza:
@@ -84,6 +102,8 @@ int stad(string f) {
          * y incremento de la cantidad
          */
 
+=======
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
         if (placeholder == "\"SI\"") {
             fallecidos++;
             try {
@@ -98,6 +118,7 @@ int stad(string f) {
         getline(input, placeholder, ','); //financiamiento publico o privado
         getline(input, placeholder, ','); //Estado del paciente
         getline(input, placeholder, ','); //resumen del estado
+<<<<<<< HEAD
 
         /**
         * Condicional que en caso de que haya un paciente infectado en el archivo .CSV realiza:
@@ -106,6 +127,8 @@ int stad(string f) {
         * y incremento de la cantidad
         */
 
+=======
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
         if (placeholder == "\"Confirmado\"") {
             infectados++;
             try {

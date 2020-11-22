@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
 #ifndef TP2_PIII_FOLCO_TZVIR_MERGEsortfecha_H
 #define TP2_PIII_FOLCO_TZVIR_MERGEsortfecha_H
 #include "ListCasos.h"

@@ -1,5 +1,6 @@
 #ifndef TP2_PIII_FOLCO_TZVIR_MERGE_H
 #define TP2_PIII_FOLCO_TZVIR_MERGE_H
+<<<<<<< HEAD
 
 using namespace std;
 
@@ -10,6 +11,9 @@ using namespace std;
  * @param b = lista tipo paciente 2
  * @return ordenamiento de listas de mayor a menor
  */
+=======
+using namespace std;
+>>>>>>> 523f801efcf0e0507ebd4732aa9059e0dce9df9c
 List<Paciente> merge(List<Paciente> a, List<Paciente> b) {
     a.checkSize();b.checkSize();
     List<Paciente> result;
