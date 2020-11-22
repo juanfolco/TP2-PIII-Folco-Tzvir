@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 #ifndef TP2_PIII_FOLCO_TZVIR_MERGEsortfecha_H
 #define TP2_PIII_FOLCO_TZVIR_MERGEsortfecha_H
 #include "ListCasos.h"
@@ -14,12 +18,8 @@
 List<Paciente> mergesortcui(List<Paciente> x) {
     x.checkSize();
     int size = x.getSize();
-// Base case. A list of zero or one elements is sorted, by definition.
     if (size <= 1)
         return x;
-
-// Recursive case. First, divide the list into equal-sized sublists
-// consisting of the first half and second half of the list.
     List<Paciente> left;
     List<Paciente> right;
     x.start();
@@ -31,11 +31,9 @@ List<Paciente> mergesortcui(List<Paciente> x) {
         }
         x.next();
     }
-// Recursively sort both sublists.
     left = mergesortcui(left);
     right = mergesortcui(right);
 
-// Then merge the now-sorted sublists.
     return mergefecha(left, right);
 
 }

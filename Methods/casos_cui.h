@@ -32,7 +32,7 @@ int casos_cui(const string &x, const string &f) {
     cout << "Leyendo archivo..." << endl;
     string placeholder, genero, nomprov, nompais, nomdep, nomprove, iniciosint, medicoc, fechaint, cui, fechacui;
     string muerte, fechamuerte, asistenciaresp, financiamiento, estadopac, resumenestado, fechadiag, actualizacion;
-    int total = 0, edad = 0;
+    int edad = 0;
     string id, semmedicoc, codigoproving, idprov, iddepart;
     List<Paciente> delcui;
 
@@ -41,13 +41,10 @@ int casos_cui(const string &x, const string &f) {
     */
 
     while (getline(input, id, ',')) {
-        total++;
-        cout << "Caso " << total << " " << id << " " << endl; //ID
         getline(input, genero, ','); //Genero
 
         getline(input, placeholder, '"'); //Captar inicio de comillas
         getline(input, placeholder, '"'); //edad
-        cout << "Edad: " << placeholder << " " << endl;
         try {
             edad = std::stoi(placeholder); //¿Está la edad puesta?
         } catch (...) {
@@ -80,8 +77,11 @@ int casos_cui(const string &x, const string &f) {
         getline(input, fechadiag, ','); //fecha de diagnostico
         getline(input, iddepart, ','); //id de departamento donde vive
         getline(input, actualizacion); //ultima actualizacion
+<<<<<<< HEAD
         cout << endl;
 
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         /**
         * Inserción de los datos a la lista
         * @param temppac variable tipo paciente donde presenta todos los datos del paciente
@@ -104,11 +104,11 @@ int casos_cui(const string &x, const string &f) {
 
     List<Paciente> sorteado = mergesortcui(delcui);
 
-    if (x == "1970-01-01") {
+    if (x == "1970-01-01") { //si no se insertó fecha, el default
         sorteado.print();
         return 0;
     }
-    string aux = "\"" + x + "\"";
+    string aux = "\"" + x + "\""; //para enviar un string correcto de comparación
     sorteado.printf(aux);
     return 0;
 }

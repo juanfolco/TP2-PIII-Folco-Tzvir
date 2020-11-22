@@ -28,7 +28,6 @@ int p_muertes(int n, string f) {
     }
     cout << "Leyendo archivo..." << endl;
     string placeholder, nomprov;
-    int total = 0;
     List<estado> provincias;
 
     /**
@@ -36,14 +35,11 @@ int p_muertes(int n, string f) {
      */
 
     while (getline(input, placeholder, ',')) {
-        total++;
-        cout << "Caso " << total << " " << placeholder << " " << endl; //ID
         getline(input, placeholder, ','); //el Dato no importa
         getline(input, placeholder, ','); //edad
         getline(input, placeholder, ','); //si la edad son años o meses
         getline(input, placeholder, ','); //pais donde vive
         getline(input, nomprov, ','); //provincia donde vive
-        cout << "Provincia: " << nomprov << " " << endl;
         getline(input, placeholder, ','); //departamento donde vive
         getline(input, placeholder, ','); //provincia donde se examina
         getline(input, placeholder, ','); //fecha de inicio de sintomas (en formato fecha)
@@ -57,7 +53,7 @@ int p_muertes(int n, string f) {
       * Generación de lista para comparar provincias
       * En caso de que la provincia ya se encuentre, se incrementa el número. En caso contrario,
       * se forma un nuevo contador
-      * @param temp(nomprov,cantidad) = lista donde se almacena el nombre de las provincias
+      * @param temp(nomprov,cantidad) = lista donde se almacena el Nombre de las provincias
       * @param nomprov = nombres de las provincias
       */
         if (placeholder == "\"SI\"") {
@@ -76,20 +72,16 @@ int p_muertes(int n, string f) {
             if (provincias.isEmpty())
                 provincias.push_front(temp);
         }
-        cout<< "Se murio? " << placeholder << endl;
         getline(input, placeholder, ','); //si murio, cuando?
         getline(input, placeholder, ','); //estuvo en asistencia respiratoria?
         getline(input, placeholder, ','); //codigo de la provincia de ingreso
         getline(input, placeholder, ','); //financiamiento publico o privado
         getline(input, placeholder, ','); //Estado del paciente
         getline(input, placeholder, ','); //resumen del estado
-        cout << "Estado: " << placeholder << " " << endl;
         getline(input, placeholder, ','); //id de provincia donde vive
-        cout << "ID provincial: " << placeholder << " " << endl;
         getline(input, placeholder, ','); //fecha de diagnostico
         getline(input, placeholder, ','); //id de departamento donde vive
         getline(input, placeholder); //ultima actualizacion
-        cout << endl;
     }
 
     /**
@@ -99,12 +91,18 @@ int p_muertes(int n, string f) {
    * @param final = lista con las provincias y el algoritmo de ordenamiento para ordenar las mismas
    */
 
+<<<<<<< HEAD
     List<estado> final=mergesortnum(provincias);
     if(n==0) {
+=======
+    List<estado> final = mergesortnum(provincias);
+    if (n == 0) { //sin n
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         final.print();
         return 0;
     }
-    final.printn(n);
+    final.printn(n); //con n
     return 0;
 }
+
 #endif //TP2_PIII_FOLCO_TZVIR_P_MUERTES_H

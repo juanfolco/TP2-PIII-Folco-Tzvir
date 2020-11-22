@@ -19,10 +19,11 @@ contenidos:
     los datos de los argumentos.
 -	NodeCasos.h: presenta el nodo que ListCasos.h utiliza.
 -	TreeNode.h: nodo de árbol binario balanceado AVLTree.h.
--	mergesort_num.h: presenta algoritmo de ordenamiento merge sort que compara 
-    provincias en p_casos.h y p_muertes.h.
--	mergesortfecha.h: presenta algoritmo de ordenamiento merge sort que compara 
-    fechas en casos_cui.h.
+-   merge.h y mergesort.h: algoritmo de ordenamiento merge que compara listas
+-	mergesort.h y mergesort_num.h: presenta algoritmo de ordenamiento merge sort 
+    que compara provincias en p_casos.h y p_muertes.h.
+-	mergefecha.h y mergesortfecha.h: presenta algoritmo de ordenamiento merge sort 
+    que compara fechas en casos_cui.h.
 -	rango.h: presenta clase para colocar datos de stad.h, que luego serán ordenados 
     en AVLTree.h.
 
@@ -63,7 +64,7 @@ este programa:
 
  Bibliotecas utilizadas en CLION
  
-•	Iostream
+•	iostream
 •	fstream
 •	string.h
 •	string

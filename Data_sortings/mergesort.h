@@ -1,5 +1,6 @@
 #ifndef TP2_PIII_FOLCO_TZVIR_MERGESORT_H
 #define TP2_PIII_FOLCO_TZVIR_MERGESORT_H
+
 #include "ListCasos.h"
 #include "../Methods/Paciente.h"
 #include "merge.h"
@@ -14,12 +15,9 @@
 List<Paciente> mergesort(List<Paciente> x) {
     x.checkSize();
     int size = x.getSize();
-// Base case. A list of zero or one elements is sorted, by definition.
     if (size <= 1)
         return x;
 
-// Recursive case. First, divide the list into equal-sized sublists
-// consisting of the first half and second half of the list.
     List<Paciente> left;
     List<Paciente> right;
     x.start();
@@ -31,12 +29,11 @@ List<Paciente> mergesort(List<Paciente> x) {
         }
         x.next();
     }
-// Recursively sort both sublists.
     left = mergesort(left);
     right = mergesort(right);
-
-// Then merge the now-sorted sublists.
+    
     return merge(left, right);
 
 }
+
 #endif //TP2_PIII_FOLCO_TZVIR_MERGESORT_H

@@ -12,7 +12,7 @@
 using namespace std;
 
 /**
- * Mostrará los datos de los casos donde la edad sea ‘años’ (ordenados por nombre de provincia)
+ * Mostrará los datos de los casos donde la edad sea ‘años’ (ordenados por Nombre de provincia)
  * @param x variable unsigned int con la que comparo edades
  * @param f variable const string opción argumento ingresado por el usuario
  * @return lista ordenada por provincias con casos donde la edad sea en años
@@ -39,12 +39,10 @@ int casos_edad(unsigned int x, const string &f) {
 
     while (getline(input, id, ',')) {
         total++;
-        cout << "Caso " << total << " " << id << " " << endl; //ID
         getline(input, genero, ','); //Genero
 
         getline(input, placeholder, '"'); //Captar inicio de comillas
         getline(input, placeholder, '"'); //edad
-        cout << "Edad: " << placeholder << " " << endl;
         try {
             edad = std::stoi(placeholder); //¿Está la edad puesta?
         } catch (...) {
@@ -73,18 +71,23 @@ int casos_edad(unsigned int x, const string &f) {
         getline(input, financiamiento, ','); //financiamiento publico o privado
         getline(input, estadopac, ','); //Estado del paciente
         getline(input, resumenestado, ','); //resumen del estado
-
         getline(input, idprov, ','); //id de provincia donde vive
         getline(input, fechadiag, ','); //fecha de diagnostico
         getline(input, iddepart, ','); //id de departamento donde vive
         getline(input, actualizacion); //ultima actualizacion
+<<<<<<< HEAD
         cout << endl;
 
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         /**
        * Inserción de los datos a la lista
        * @param temppac variable tipo paciente donde presenta todos los datos del paciente
        */
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         if (edad == x) {
             Paciente temppac(id, genero, edad, nompais, nomprov, nomdep, nomprove, iniciosint, medicoc, semmedicoc,
                              fechaint, cui, fechacui, muerte, fechamuerte, asistenciaresp, codigoproving,
@@ -95,7 +98,7 @@ int casos_edad(unsigned int x, const string &f) {
 
     /**
    * Lista con algoritmo de ordenamiento
-   * Se muestra los datos de los casos donde la edad sea ‘años’ (ordenados por nombre de provincia)
+   * Se muestra los datos de los casos donde la edad sea ‘años’ (ordenados por Nombre de provincia)
    * @param sorteado = lista con las edades y el algoritmo de ordenamiento para ordenar las provincias
    */
 
@@ -104,5 +107,9 @@ int casos_edad(unsigned int x, const string &f) {
     return 0;
 
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 #endif //TP2_PIII_FOLCO_TZVIR_CASOS_EDAD_H
 

@@ -270,7 +270,7 @@ void AVLTree<T>::print() { print(true, "", root); }
 
 template<class T>
 void AVLTree<T>::print(bool isRight, std::string ident, TreeNode<T> *r) {
-    if (root == nullptr)
+    if (isEmpty())
         return;
     if (r->getRight() != nullptr) {
         print(true, ident + (isRight ? "     " : "|    "), r->getRight());
@@ -358,3 +358,7 @@ int AVLTree<T>::max(int a, int b) {
 }
 
 #endif // U06_ARBOL_ARBOL_AVLTREE_H_
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df

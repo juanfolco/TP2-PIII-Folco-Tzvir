@@ -33,7 +33,7 @@ public:
 
     void setRight(TreeNode<T> *right) { TreeNode::right = right; }
 
-    T &getData() { return data; }
+    T &getData() { return data; } //referencia al original en vez de copia
 
     void setData(T data) { TreeNode::data = data; }
 

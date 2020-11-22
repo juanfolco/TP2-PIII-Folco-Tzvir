@@ -28,22 +28,18 @@ int p_casos(int n, const string &f) {
     }
     cout << "Leyendo archivo..." << endl;
     string placeholder, nomprov;
-    int total = 0;
     List<estado> provincias;
 
     /**
    * Lectura del archivo .CSV a través de getline
    */
 
-    while (getline(input, placeholder, ',')) {
-        total++;
-        cout << "Caso " << total << " " << placeholder << " " << endl; //ID
+    while (getline(input, placeholder, ',')) { //mientras haya algo que leer
         getline(input, placeholder, ','); //el Dato no importa
         getline(input, placeholder, ','); //edad
         getline(input, placeholder, ','); //si la edad son años o meses
         getline(input, placeholder, ','); //pais donde vive
         getline(input, nomprov, ','); //provincia donde vive
-        cout << "Provincia: " << nomprov << " " << endl;
         getline(input, placeholder, ','); //departamento donde vive
         getline(input, placeholder, ','); //provincia donde se examina
         getline(input, placeholder, ','); //fecha de inicio de sintomas (en formato fecha)
@@ -64,7 +60,7 @@ int p_casos(int n, const string &f) {
         * Generación de lista para comparar provincias
         * En caso de que la provincia ya se encuentre, se incrementa el número. En caso contrario,
         * se forma un nuevo contador
-        * @param temp(nomprov,cantidad) = lista donde se almacena el nombre de las provincias
+        * @param temp(nomprov,cantidad) = lista donde se almacena el Nombre de las provincias
         * @param nomprov = nombres de las provincias
         */
 
@@ -84,13 +80,10 @@ int p_casos(int n, const string &f) {
             if (provincias.isEmpty())
                 provincias.push_front(temp);
         }
-        cout << "Estado: " << placeholder << " " << endl;
         getline(input, placeholder, ','); //id de provincia donde vive
-        cout << "ID provincial: " << placeholder << " " << endl;
         getline(input, placeholder, ','); //fecha de diagnostico
         getline(input, placeholder, ','); //id de departamento donde vive
         getline(input, placeholder); //ultima actualizacion
-        cout << endl;
     }
 
     /**
@@ -102,10 +95,10 @@ int p_casos(int n, const string &f) {
 
     List<estado> final = mergesortnum(provincias);
     if (n == 0) {
-        final.print();
+        final.print(); //sin n
         return 0;
     }
-    final.printn(n);
+    final.printn(n); //con n
     return 0;
 }
 

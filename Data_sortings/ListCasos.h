@@ -34,6 +34,57 @@ public:
 
     unsigned int getSize();
 
+<<<<<<< HEAD
+=======
+    /**
+ * Función que revisa el tamaño correcto de la lista misma, a raíz de un bug
+ * @tparam T
+ */
+    void checkSize() {
+        Node<T> *aux1 = begin;
+        size = 0;
+        if (begin == nullptr) {
+
+        }
+        while (aux1 != nullptr) {
+            aux1 = aux1->getNext();
+            size++;
+        }
+    };
+
+    /**
+    * Función que imprime cantidad de muertes
+    * @tparam T
+    */
+    void printn(unsigned int n) {
+        Node<T> *aux = begin;
+        int i = 0;
+        while (aux != nullptr && i < n) {
+            std::cout << aux->getData() << " -> ";
+            std::cout << std::endl;
+            aux = aux->getNext();
+            i++;
+        }
+        std::cout << " " << std::endl;
+    }
+
+/**
+ * Función que imprime casos de pacientes que estuvieron en cuidados intensivos
+ * @tparam T
+ */
+    void printf(const string &n) {
+        Node<T> *aux = begin;
+        while (aux != nullptr) {
+            if (aux->getData().getCuif() >= n) {
+                std::cout << aux->getData() << " -> ";
+                std::cout << std::endl;
+            }
+            aux = aux->getNext();
+        }
+        std::cout << " " << std::endl;
+    }
+
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
     void insert(unsigned int pos, T data);
 
     void push_front(T data);
@@ -74,6 +125,7 @@ public:
     }
 
     void print();
+<<<<<<< HEAD
 
     void checkSize();
 
@@ -81,6 +133,8 @@ public:
 
     void printf(const string &n);
 
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 };
 
 /**
@@ -344,6 +398,7 @@ Node<T> *List<T>::getNodepub(unsigned int pos) const {
     return aux;
 }
 
+<<<<<<< HEAD
 /**
  * Función que me revisa el tamaño correcto
  * @tparam T
@@ -395,5 +450,7 @@ void List<T>::printf(const string &n){
     std::cout << " " << std::endl;
 }
 
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 #endif // U02_LISTAS_LISTA_LISTA_H_
 

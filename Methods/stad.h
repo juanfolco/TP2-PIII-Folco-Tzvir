@@ -10,13 +10,19 @@
 #include "../Data_sortings/rango.h"
 
 using namespace std;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 /**
  * Permite la muestra de información estadística
  * @param f = variable string opción argumento ingresado por el usuario
  * @return árbol binario y muestra de información estadística
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 int stad(string f) {
     ifstream input;
     input.open(f.c_str());
@@ -27,21 +33,27 @@ int stad(string f) {
     cout << "Leyendo archivo..." << endl;
     string placeholder;
     int total = 0, edad = 0, infectados = 0, fallecidos = 0;
+<<<<<<< HEAD
     AVLTree<rango> arboldeinfectados, arboldefallecidos;
 
+=======
+    AVLTree<rango> arboldeinfectados, arboldefallecidos; //los árboles para ordenar rangos etarios
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 
     /**
      * Lectura del archivo .CSV a través de getline
      */
 
+<<<<<<< HEAD
     while (getline(input, placeholder, ',')) {
+=======
+    while (getline(input, placeholder, ',')) { //mientras haya algo que leer
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         total++;
-        cout << "Caso " << total << " " << placeholder << " " << endl; //ID
         getline(input, placeholder, ','); //Genero
 
         getline(input, placeholder, '"'); //Captar inicio de comillas
         getline(input, placeholder, '"'); //edad
-        cout << "Edad: " << placeholder << " " << endl;
         try {
             edad = std::stoi(placeholder); //¿Está la edad puesta?
         } catch (...) {
@@ -57,14 +69,17 @@ int stad(string f) {
          * Aplicación de variables para árbol binario balanceado
          * @param minrango = edad mínima del rango etario
          * @param maxrango = edad máxima del rango etario
-         * @param dato(minrango, maxrango, cantidad) = dato de clase rango que va a formar parte de árbol balanceado
+         * @param dato(minrango, maxrango, cantidad) = dato de clase rango que va a formar parte del árbol balanceado
          */
 
         int mrango = edad / 10;
         int minrango = mrango * 10;
         int maxrango = mrango * 10 + 9;
         rango dato(minrango, maxrango, 1);
+<<<<<<< HEAD
         cout << minrango << " " << maxrango << endl;
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 
         getline(input, placeholder, ','); //pais donde vive
         getline(input, placeholder, ','); //provincia donde vive
@@ -77,7 +92,10 @@ int stad(string f) {
         getline(input, placeholder, ','); //estuvo en cui?
         getline(input, placeholder, ','); //cuando estuvo en cui?
         getline(input, placeholder, ','); //murio?
+<<<<<<< HEAD
         cout << "Muerte: " << placeholder << " " << endl;
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 
         /**
          * Condicional que en caso de que haya un paciente fallecido en el archivo .CSV realiza:
@@ -86,7 +104,10 @@ int stad(string f) {
          * Se agrega dato a árbol binario balanceado. En caso de variables iguales, se procede a la búsqueda
          * y incremento de la cantidad
          */
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         if (placeholder == "\"SI\"") {
             fallecidos++;
             try {
@@ -101,7 +122,10 @@ int stad(string f) {
         getline(input, placeholder, ','); //financiamiento publico o privado
         getline(input, placeholder, ','); //Estado del paciente
         getline(input, placeholder, ','); //resumen del estado
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         /**
         * Condicional que en caso de que haya un paciente infectado en el archivo .CSV realiza:
         * Generación árbol binario balanceado para ordenar cantidad de infectados por rango etario
@@ -117,12 +141,10 @@ int stad(string f) {
                 arboldeinfectados.search(dato).addCantidad();
             }
         }
-        cout << "Resumen: " << placeholder << " " << endl;
         getline(input, placeholder, ','); //id de provincia donde vive
         getline(input, placeholder, ','); //fecha de diagnostico
         getline(input, placeholder, ','); //id de departamento donde vive
         getline(input, placeholder); //ultima actualizacion
-        cout << endl;
     }
 
     /**
