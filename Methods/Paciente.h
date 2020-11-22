@@ -4,9 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
-#include <sstream>
 #include <string>
-#include "fecha.cpp"
 
 /**
  * Clase con los datos del paciente presentada en el archivo .CSV
@@ -63,7 +61,7 @@ public:
              idprovinciacarga(idprovinciacarga), financiamiento(financiamiento), clasificacion(clasificacion),
              resumen(resumen), idprovinciares(idprovinciares), diagnostico(diagnostico),
              iddepartamentores(iddepartamentores), actualizacion(actualizacion) {}
-             //constructor con todos los int
+             //constructor con todos los int (ya no necesario)
 
     Paciente(const std::string &idstr, const std::string &genero, int edad, const std::string &pais, const std::string &provincia,
              const std::string &departamento, const std::string &provinciaC, const std::string &sintomas,

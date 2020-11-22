@@ -8,12 +8,9 @@
 List<estado> mergesortnum(List<estado> x) {
     x.checkSize();
     int size = x.getSize();
-// Base case. A list of zero or one elements is sorted, by definition.
     if (size <= 1)
         return x;
 
-// Recursive case. First, divide the list into equal-sized sublists
-// consisting of the first half and second half of the list.
     List<estado> left;
     List<estado> right;
     x.start();
@@ -25,11 +22,9 @@ List<estado> mergesortnum(List<estado> x) {
         }
         x.next();
     }
-// Recursively sort both sublists.
     left = mergesortnum(left);
     right = mergesortnum(right);
 
-// Then merge the now-sorted sublists.
 List<estado> Result= mergenum(left, right);
     return Result;
 }
