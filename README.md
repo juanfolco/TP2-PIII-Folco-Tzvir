@@ -9,6 +9,7 @@ La información forma parte del archivo .CSV, de la sección “Dataset” del M
 de Salud, y posee todos los casos registrados de COVID-19 hasta la fecha. 
 
 ### Archivos
+
 En este repositorio se cuenta con dos carpetas, que contienen los siguientes 
 contenidos:
 
@@ -73,9 +74,11 @@ Bibliotecas utilizadas en CLION:
 -	bits/stdc++.h
 
 #Autores
+
 *Creado y desarrollado por Juan Ignacio Folco y Vera Estefanía Tzvir.*
 
 #Forma de utilización
+
 Uso normal:
 ```covid19.exe [Argumentos] Covid19Casos.csv```
 
