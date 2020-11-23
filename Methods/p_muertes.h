@@ -91,13 +91,8 @@ int p_muertes(int n, string f) {
    * @param final = lista con las provincias y el algoritmo de ordenamiento para ordenar las mismas
    */
 
-<<<<<<< HEAD
-    List<estado> final=mergesortnum(provincias);
-    if(n==0) {
-=======
     List<estado> final = mergesortnum(provincias);
     if (n == 0) { //sin n
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         final.print();
         return 0;
     }

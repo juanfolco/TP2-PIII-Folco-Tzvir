@@ -15,13 +15,6 @@
  */
 
 int main(int argc, char *argv[]) {
-<<<<<<< HEAD
-    // std::cout << "Cantidad de argumentos: " << argc << std::endl;
-    // for (int i = 0; i < argc; ++i) {
-    //     std::cout << "Valor " << i << "\t" << argv[i] << std::endl;
-    //
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
     if (argc >= 3) {
         // Suficientes argumentos para seguir
         if (std::string(argv[1]) == "-p_casos") {

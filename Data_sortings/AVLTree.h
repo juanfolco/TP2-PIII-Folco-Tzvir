@@ -13,7 +13,7 @@ private:
 
     TreeNode<T> *put(T data, TreeNode<T> *r);
 
-    void print(bool isRight, std::string ident, TreeNode<T> *r);
+    void print(bool isRight, const std::string &ident, TreeNode<T> *r);
 
     T &search(T data, TreeNode<T> *r);
 
@@ -269,7 +269,7 @@ template<class T>
 void AVLTree<T>::print() { print(true, "", root); }
 
 template<class T>
-void AVLTree<T>::print(bool isRight, std::string ident, TreeNode<T> *r) {
+void AVLTree<T>::print(bool isRight, const std::string &ident, TreeNode<T> *r) {
     if (isEmpty())
         return;
     if (r->getRight() != nullptr) {
@@ -358,7 +358,3 @@ int AVLTree<T>::max(int a, int b) {
 }
 
 #endif // U06_ARBOL_ARBOL_AVLTREE_H_
-<<<<<<< HEAD
-=======
-
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df

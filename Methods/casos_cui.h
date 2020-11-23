@@ -77,11 +77,6 @@ int casos_cui(const string &x, const string &f) {
         getline(input, fechadiag, ','); //fecha de diagnostico
         getline(input, iddepart, ','); //id de departamento donde vive
         getline(input, actualizacion); //ultima actualizacion
-<<<<<<< HEAD
-        cout << endl;
-
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         /**
         * Inserción de los datos a la lista
         * @param temppac variable tipo paciente donde presenta todos los datos del paciente

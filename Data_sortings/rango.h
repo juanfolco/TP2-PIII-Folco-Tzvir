@@ -16,23 +16,17 @@ private:
 public:
     rango(int minrango, int maxrango, int cantidad) : minrango(minrango), maxrango(maxrango), cantidad(cantidad) {}
 
-<<<<<<< HEAD
-    int getMinrango() const {return minrango; }
-=======
     int getMinrango() const { return minrango; }
 
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
     void setMinrango(int minrango) { rango::minrango = minrango; }
 
     int getMaxrango() const { return maxrango; }
+
     void setMaxrango(int maxrango) { rango::maxrango = maxrango; }
 
     int getCantidad() const { return cantidad; }
-    void setCantidad(int cantidad) { rango::cantidad = cantidad; }
-<<<<<<< HEAD
-=======
 
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
+    void setCantidad(int cantidad) { rango::cantidad = cantidad; }
 
     friend std::ostream &operator<<(std::ostream &os, const rango &rango) {
         os << rango.minrango << "-" << rango.maxrango << " Casos: " << rango.cantidad;
@@ -54,11 +48,7 @@ public:
         return maxrango < rhs.maxrango;
     }
 
-<<<<<<< HEAD
-    bool operator>(const rango &rhs) const { return rhs < *this;}
-=======
     bool operator>(const rango &rhs) const { return rhs < *this; }
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 
     bool operator<=(const rango &rhs) const { return !(rhs < *this); }
 
@@ -72,10 +62,6 @@ public:
         x++;
         rango::cantidad = x;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 };
 
 #endif //TP2_PIII_FOLCO_TZVIR_RANGO_H

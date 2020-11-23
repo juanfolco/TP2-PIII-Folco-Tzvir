@@ -75,19 +75,10 @@ int casos_edad(unsigned int x, const string &f) {
         getline(input, fechadiag, ','); //fecha de diagnostico
         getline(input, iddepart, ','); //id de departamento donde vive
         getline(input, actualizacion); //ultima actualizacion
-<<<<<<< HEAD
-        cout << endl;
-
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         /**
        * Inserción de los datos a la lista
        * @param temppac variable tipo paciente donde presenta todos los datos del paciente
        */
-<<<<<<< HEAD
-
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         if (edad == x) {
             Paciente temppac(id, genero, edad, nompais, nomprov, nomdep, nomprove, iniciosint, medicoc, semmedicoc,
                              fechaint, cui, fechacui, muerte, fechamuerte, asistenciaresp, codigoproving,
@@ -107,9 +98,6 @@ int casos_edad(unsigned int x, const string &f) {
     return 0;
 
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 #endif //TP2_PIII_FOLCO_TZVIR_CASOS_EDAD_H
 

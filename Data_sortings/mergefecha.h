@@ -1,11 +1,6 @@
 #ifndef TP2_PIII_FOLCO_TZVIR_MERGEfecha_H
 #define TP2_PIII_FOLCO_TZVIR_MERGEfecha_H
 
-#include "../Methods/Paciente.h"
-#include "ListCasos.h"
-
-using namespace std;
-
 /**
  * Algoritmo de ordenamiento merge que compara listas
  * @param a = lista tipo paciente 1
@@ -13,14 +8,12 @@ using namespace std;
  * @return ordenamiento de listas por fecha de cuidados intensivos
  */
 
-<<<<<<< HEAD
-=======
+
 #include "../Methods/Paciente.h"
 #include "ListCasos.h"
 
 using namespace std;
 
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 List<Paciente> mergefecha(List<Paciente> a, List<Paciente> b) {
     a.checkSize();
     b.checkSize();
@@ -51,10 +44,5 @@ List<Paciente> mergefecha(List<Paciente> a, List<Paciente> b) {
     return result;
 }
 
-<<<<<<< HEAD
-#endif //TP2_PIII_FOLCO_TZVIR_MERGEfecha_H
-=======
-
 #endif //TP2_PIII_FOLCO_TZVIR_MERGEfecha_H
 
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df

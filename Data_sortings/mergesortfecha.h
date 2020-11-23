@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 #ifndef TP2_PIII_FOLCO_TZVIR_MERGEsortfecha_H
 #define TP2_PIII_FOLCO_TZVIR_MERGEsortfecha_H
+
 #include "ListCasos.h"
 #include "../Methods/Paciente.h"
 #include "mergefecha.h"
@@ -37,4 +34,5 @@ List<Paciente> mergesortcui(List<Paciente> x) {
     return mergefecha(left, right);
 
 }
+
 #endif //TP2_PIII_FOLCO_TZVIR_MERGEsortfecha_H

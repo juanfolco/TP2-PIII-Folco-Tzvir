@@ -18,8 +18,8 @@ List<Paciente> mergesort(List<Paciente> x) {
     if (size <= 1)
         return x;
 
-    List<Paciente> left;
-    List<Paciente> right;
+    List < Paciente > left;
+    List < Paciente > right;
     x.start();
     for (int i = 0; i < size; i++) {
         if (i < size / 2) {
@@ -31,7 +31,7 @@ List<Paciente> mergesort(List<Paciente> x) {
     }
     left = mergesort(left);
     right = mergesort(right);
-    
+
     return merge(left, right);
 
 }

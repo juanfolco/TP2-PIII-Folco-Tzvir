@@ -10,20 +10,13 @@
 #include "../Data_sortings/rango.h"
 
 using namespace std;
-<<<<<<< HEAD
 
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 /**
  * Permite la muestra de información estadística
  * @param f = variable string opción argumento ingresado por el usuario
  * @return árbol binario y muestra de información estadística
  */
-<<<<<<< HEAD
-
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
-int stad(string f) {
+int stad(const string &f) {
     ifstream input;
     input.open(f.c_str());
     if (input.fail()) {
@@ -33,22 +26,12 @@ int stad(string f) {
     cout << "Leyendo archivo..." << endl;
     string placeholder;
     int total = 0, edad = 0, infectados = 0, fallecidos = 0;
-<<<<<<< HEAD
-    AVLTree<rango> arboldeinfectados, arboldefallecidos;
-
-=======
     AVLTree<rango> arboldeinfectados, arboldefallecidos; //los árboles para ordenar rangos etarios
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
-
     /**
      * Lectura del archivo .CSV a través de getline
      */
 
-<<<<<<< HEAD
-    while (getline(input, placeholder, ',')) {
-=======
     while (getline(input, placeholder, ',')) { //mientras haya algo que leer
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         total++;
         getline(input, placeholder, ','); //Genero
 
@@ -76,10 +59,6 @@ int stad(string f) {
         int minrango = mrango * 10;
         int maxrango = mrango * 10 + 9;
         rango dato(minrango, maxrango, 1);
-<<<<<<< HEAD
-        cout << minrango << " " << maxrango << endl;
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 
         getline(input, placeholder, ','); //pais donde vive
         getline(input, placeholder, ','); //provincia donde vive
@@ -92,10 +71,6 @@ int stad(string f) {
         getline(input, placeholder, ','); //estuvo en cui?
         getline(input, placeholder, ','); //cuando estuvo en cui?
         getline(input, placeholder, ','); //murio?
-<<<<<<< HEAD
-        cout << "Muerte: " << placeholder << " " << endl;
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
 
         /**
          * Condicional que en caso de que haya un paciente fallecido en el archivo .CSV realiza:
@@ -104,10 +79,6 @@ int stad(string f) {
          * Se agrega dato a árbol binario balanceado. En caso de variables iguales, se procede a la búsqueda
          * y incremento de la cantidad
          */
-<<<<<<< HEAD
-
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         if (placeholder == "\"SI\"") {
             fallecidos++;
             try {
@@ -122,10 +93,6 @@ int stad(string f) {
         getline(input, placeholder, ','); //financiamiento publico o privado
         getline(input, placeholder, ','); //Estado del paciente
         getline(input, placeholder, ','); //resumen del estado
-<<<<<<< HEAD
-
-=======
->>>>>>> c8a104e65aeff0d6a2992f571860def903ce14df
         /**
         * Condicional que en caso de que haya un paciente infectado en el archivo .CSV realiza:
         * Generación árbol binario balanceado para ordenar cantidad de infectados por rango etario
@@ -155,7 +122,7 @@ int stad(string f) {
     cout << "Cantidad de infectados: " << infectados << endl;
     cout << "Cantidad de fallecidos: " << fallecidos << endl;
     cout << "Porcentaje de infectados por cantidad de muestras: " << (infectados * 100) / total << "%" << endl;
-    cout << "Porcentaje de fallecidos por cantidad de muestras: " << (fallecidos * 100) / total << "%" << endl;
+    cout << "Porcentaje de fallecidos por cantidad de infectados: " << (fallecidos * 100) / infectados << "%" << endl;
     cout << "Cantidad de infectados por rango etario:" << endl;
     arboldeinfectados.print();
     cout << endl;
